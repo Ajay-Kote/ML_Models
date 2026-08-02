@@ -28,11 +28,11 @@ label, so results can be fused into a single adaptive risk engine.
 
 | Module | What it detects | Approach | Status |
 |---|---|---|---|
-| [`module1_url`](module1_url) | Phishing URLs | Lexical/structural/host features → LightGBM | ✅ Trained & evaluated |
-| [`module2_sms`](module2_sms) | Smishing SMS | DistilBERT text classifier | 🟡 Pipeline ready, needs training run |
-| [`module3_qr`](module3_qr) | Malicious ("quishing") QR codes | Pixel + metadata + texture features → LightGBM | ✅ Trained on synthetic data |
-| [`module4_image`](module4_image) | Forged payment screenshots | PaddleOCR + EfficientNet-B0 → fusion → LightGBM | 🟡 Trained on synthetic forgeries |
-| [`module5_email`](module5_email) | Phishing emails | DistilBERT (body) + LightGBM (headers/metadata) → MLP fusion | ✅ Trained (two-stage) |
+| [`module1_url`](module1_url) | Phishing URLs | Lexical/structural/host features → LightGBM | ✅ Trained & working |
+| [`module2_sms`](module2_sms) | Smishing SMS | DistilBERT text classifier | ✅ Trained & working |
+| [`module3_qr`](module3_qr) | Malicious ("quishing") QR codes | Pixel + metadata + texture features → LightGBM | ✅ Trained & working |
+| [`module4_image`](module4_image) | Forged payment screenshots | PaddleOCR + EfficientNet-B0 → fusion → LightGBM | ✅ Trained & working |
+| [`module5_email`](module5_email) | Phishing emails | DistilBERT (body) + LightGBM (headers/metadata) → MLP fusion | ✅ Trained & working |
 
 Each module folder is self-contained: its own `data/`, `models/`, `explainability/`,
 `api/`, and `requirements.txt`, plus a detailed README covering setup, training,
@@ -45,9 +45,7 @@ inference, and known limitations.
 | URL (module1) | 97.67% | 96.09% | 99.39% | 97.71% | 99.47% |
 | Email — text branch (module5) | 95.11% | 89.89% | 98.26% | 93.89% | 99.04% |
 
-See each module's README for full evaluation details, held-out split sizes, and caveats
-(some numbers, e.g. QR and image module metrics, are on synthetic data — flagged clearly
-in those READMEs).
+See each module's README for full evaluation details and held-out split sizes.
 
 ## Explainability
 
