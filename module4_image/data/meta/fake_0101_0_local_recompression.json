@@ -1,0 +1,10 @@
+{
+  "source_image": "real_0101.jpg",
+  "manipulation_type": "local_recompression",
+  "bbox_xyxy": [
+    571,
+    741,
+    861,
+    913
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "source_image": "real_0061.jpg",
+  "manipulation_type": "text_overlay",
+  "bbox_xyxy": [
+    305,
+    948,
+    463,
+    1056
+  ]
+}

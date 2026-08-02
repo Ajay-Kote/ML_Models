@@ -1,0 +1,10 @@
+{
+  "source_image": "real_0140.jpg",
+  "manipulation_type": "splice",
+  "bbox_xyxy": [
+    501,
+    1076,
+    628,
+    1190
+  ]
+}
