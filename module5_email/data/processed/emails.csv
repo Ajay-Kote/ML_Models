@@ -1,0 +1,2362 @@
+raw_email,label
+"From: Netflix Billing <billing@netflix-account-update.zip>
+To: user@example.com
+Subject: Payment failed - update required immediately
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@netflix-account-update.zip
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your last payment could not be processed. To avoid service suspension, please update your billing information immediately by verifying your account now.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your last payment could not be processed. To avoid service suspension, please update your billing information immediately by verifying your account now.</p><a href='http://netflix-account-update.zip/phish/53'>amazon.com/account</a></body></html>
+
+--BOUNDARY123--",1
+"From: Amazon Security <security-update@amaz0n-verify.top>
+To: user@example.com
+Subject: Action Required: Password expires today
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@attacker-collect.ru
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your password expires today. To avoid being locked out, please verify your account immediately by clicking the secure link below. This is your final notice.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your password expires today. To avoid being locked out, please verify your account immediately by clicking the secure link below. This is your final notice.</p><a href='http://amaz0n-verify.top/phish/30'>www.paypal.com/verify</a></body></html>
+
+--BOUNDARY123
+Content-Type: application/octet-stream; name=""invoice.zip""
+Content-Disposition: attachment; filename=""invoice.zip""
+Content-Transfer-Encoding: base64
+
+QUJDREVGRw==
+
+--BOUNDARY123--",1
+"From: Amazon <auto-confirm@amazon.com>
+To: user@example.com
+Subject: Your monthly statement is ready
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your statement for this billing cycle is now available in your online account. No action is required unless you have questions about a specific charge.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your statement for this billing cycle is now available in your online account. No action is required unless you have questions about a specific charge.</p><a href='https://amazon.com/orders/4471'>View order</a></body></html>
+
+--BOUNDARY123--",0
+"From: Team Lead <priya.sharma@microsoft.com>
+To: user@example.com
+Subject: Weekly team sync notes
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Hi all,
+
+Attaching this week's sync notes. Let me know if I missed anything from the roadmap discussion. See you at the next standup.
+
+Best,
+Priya
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Hi all,
+
+Attaching this week's sync notes. Let me know if I missed anything from the roadmap discussion. See you at the next standup.
+
+Best,
+Priya</p><a href='https://microsoft.com/orders/4471'>View order</a></body></html>
+
+--BOUNDARY123--",0
+"From: IT Helpdesk <helpdesk@corp-it-alerts.click>
+To: user@example.com
+Subject: Action Required: Password expires today
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@attacker-collect.ru
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your password expires today. To avoid being locked out, please verify your account immediately by clicking the secure link below. This is your final notice.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your password expires today. To avoid being locked out, please verify your account immediately by clicking the secure link below. This is your final notice.</p><a href='http://corp-it-alerts.click/phish/18'>www.paypal.com/verify</a></body></html>
+
+--BOUNDARY123
+Content-Type: application/octet-stream; name=""invoice.zip""
+Content-Disposition: attachment; filename=""invoice.zip""
+Content-Transfer-Encoding: base64
+
+QUJDREVGRw==
+
+--BOUNDARY123--",1
+"From: IT Helpdesk <helpdesk@corp-it-alerts.click>
+To: user@example.com
+Subject: Payment failed - update required immediately
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@attacker-collect.ru
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your last payment could not be processed. To avoid service suspension, please update your billing information immediately by verifying your account now.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your last payment could not be processed. To avoid service suspension, please update your billing information immediately by verifying your account now.</p><a href='http://corp-it-alerts.click/phish/28'>www.paypal.com/verify</a></body></html>
+
+--BOUNDARY123--",1
+"From: Amazon <auto-confirm@amazon.com>
+To: user@example.com
+Subject: New comment on your pull request
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Someone commented on your pull request #182. View the discussion and reply on the repository page whenever you get a chance.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Someone commented on your pull request #182. View the discussion and reply on the repository page whenever you get a chance.</p><a href='https://amazon.com/orders/4471'>View order</a></body></html>
+
+--BOUNDARY123--",0
+"From: Team Lead <priya.sharma@microsoft.com>
+To: user@example.com
+Subject: New comment on your pull request
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Someone commented on your pull request #182. View the discussion and reply on the repository page whenever you get a chance.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Someone commented on your pull request #182. View the discussion and reply on the repository page whenever you get a chance.</p><a href='https://microsoft.com/orders/4471'>View order</a></body></html>
+
+--BOUNDARY123--",0
+"From: HR Dept <hr@company.com>
+To: user@example.com
+Subject: New comment on your pull request
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+
+Someone commented on your pull request #182. View the discussion and reply on the repository page whenever you get a chance.",0
+"From: PayPal Support <support@paypal-secure-verify.xyz>
+To: user@example.com
+Subject: Payment failed - update required immediately
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@paypal-secure-verify.xyz
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your last payment could not be processed. To avoid service suspension, please update your billing information immediately by verifying your account now.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your last payment could not be processed. To avoid service suspension, please update your billing information immediately by verifying your account now.</p><a href='http://paypal-secure-verify.xyz/phish/23'>amazon.com/account</a></body></html>
+
+--BOUNDARY123--",1
+"From: Team Lead <priya.sharma@microsoft.com>
+To: user@example.com
+Subject: Weekly team sync notes
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Hi all,
+
+Attaching this week's sync notes. Let me know if I missed anything from the roadmap discussion. See you at the next standup.
+
+Best,
+Priya
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Hi all,
+
+Attaching this week's sync notes. Let me know if I missed anything from the roadmap discussion. See you at the next standup.
+
+Best,
+Priya</p><a href='https://microsoft.com/orders/4471'>View order</a></body></html>
+
+--BOUNDARY123--",0
+"From: Amazon <auto-confirm@amazon.com>
+To: user@example.com
+Subject: New comment on your pull request
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+
+Someone commented on your pull request #182. View the discussion and reply on the repository page whenever you get a chance.",0
+"From: Amazon Security <security-update@amaz0n-verify.top>
+To: user@example.com
+Subject: Action Required: Password expires today
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@amaz0n-verify.top
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your password expires today. To avoid being locked out, please verify your account immediately by clicking the secure link below. This is your final notice.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your password expires today. To avoid being locked out, please verify your account immediately by clicking the secure link below. This is your final notice.</p><a href='http://amaz0n-verify.top/phish/19'>amazon.com/account</a></body></html>
+
+--BOUNDARY123--",1
+"From: Team Lead <priya.sharma@microsoft.com>
+To: user@example.com
+Subject: New comment on your pull request
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+
+Someone commented on your pull request #182. View the discussion and reply on the repository page whenever you get a chance.",0
+"From: IT Helpdesk <helpdesk@corp-it-alerts.click>
+To: user@example.com
+Subject: Action Required: Password expires today
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@attacker-collect.ru
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your password expires today. To avoid being locked out, please verify your account immediately by clicking the secure link below. This is your final notice.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your password expires today. To avoid being locked out, please verify your account immediately by clicking the secure link below. This is your final notice.</p><a href='http://corp-it-alerts.click/phish/12'>www.paypal.com/verify</a></body></html>
+
+--BOUNDARY123
+Content-Type: application/octet-stream; name=""invoice.zip""
+Content-Disposition: attachment; filename=""invoice.zip""
+Content-Transfer-Encoding: base64
+
+QUJDREVGRw==
+
+--BOUNDARY123--",1
+"From: GitHub <notifications@github.com>
+To: user@example.com
+Subject: Your order has shipped
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+
+Hi there,
+
+Your recent order #4471 has shipped and is on its way. You can track the package from your account order history page.
+
+Thanks,
+The Team",0
+"From: Bank Alert <alert@yourbank-online.kim>
+To: user@example.com
+Subject: Payment failed - update required immediately
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@yourbank-online.kim
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your last payment could not be processed. To avoid service suspension, please update your billing information immediately by verifying your account now.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your last payment could not be processed. To avoid service suspension, please update your billing information immediately by verifying your account now.</p><a href='http://yourbank-online.kim/phish/47'>amazon.com/account</a></body></html>
+
+--BOUNDARY123--",1
+"From: IT Helpdesk <helpdesk@corp-it-alerts.click>
+To: user@example.com
+Subject: URGENT: Your account will be suspended
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@attacker-collect.ru
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately. Click here to confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately. Click here to confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.</p><a href='http://corp-it-alerts.click/phish/6'>www.paypal.com/verify</a></body></html>
+
+--BOUNDARY123
+Content-Type: application/octet-stream; name=""invoice.zip""
+Content-Disposition: attachment; filename=""invoice.zip""
+Content-Transfer-Encoding: base64
+
+QUJDREVGRw==
+
+--BOUNDARY123--",1
+"From: Bank Alert <alert@yourbank-online.kim>
+To: user@example.com
+Subject: Unusual sign-in activity detected
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@attacker-collect.ru
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+We noticed an unauthorized login attempt. For your security, please confirm your account details urgently. Immediate action is required to restore access.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>We noticed an unauthorized login attempt. For your security, please confirm your account details urgently. Immediate action is required to restore access.</p><a href='http://yourbank-online.kim/phish/46'>www.paypal.com/verify</a></body></html>
+
+--BOUNDARY123--",1
+"From: HR Dept <hr@company.com>
+To: user@example.com
+Subject: Weekly team sync notes
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+
+Hi all,
+
+Attaching this week's sync notes. Let me know if I missed anything from the roadmap discussion. See you at the next standup.
+
+Best,
+Priya",0
+"From: Amazon <auto-confirm@amazon.com>
+To: user@example.com
+Subject: Weekly team sync notes
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Hi all,
+
+Attaching this week's sync notes. Let me know if I missed anything from the roadmap discussion. See you at the next standup.
+
+Best,
+Priya
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Hi all,
+
+Attaching this week's sync notes. Let me know if I missed anything from the roadmap discussion. See you at the next standup.
+
+Best,
+Priya</p><a href='https://amazon.com/orders/4471'>View order</a></body></html>
+
+--BOUNDARY123--",0
+"From: GitHub <notifications@github.com>
+To: user@example.com
+Subject: New comment on your pull request
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Someone commented on your pull request #182. View the discussion and reply on the repository page whenever you get a chance.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Someone commented on your pull request #182. View the discussion and reply on the repository page whenever you get a chance.</p><a href='https://github.com/orders/4471'>View order</a></body></html>
+
+--BOUNDARY123--",0
+"From: LinkedIn <messages-noreply@linkedin.com>
+To: user@example.com
+Subject: Your order has shipped
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+
+Hi there,
+
+Your recent order #4471 has shipped and is on its way. You can track the package from your account order history page.
+
+Thanks,
+The Team",0
+"From: HR Dept <hr@company.com>
+To: user@example.com
+Subject: Your monthly statement is ready
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your statement for this billing cycle is now available in your online account. No action is required unless you have questions about a specific charge.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your statement for this billing cycle is now available in your online account. No action is required unless you have questions about a specific charge.</p><a href='https://company.com/orders/4471'>View order</a></body></html>
+
+--BOUNDARY123--",0
+"From: Netflix Billing <billing@netflix-account-update.zip>
+To: user@example.com
+Subject: URGENT: Your account will be suspended
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@attacker-collect.ru
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately. Click here to confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately. Click here to confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.</p><a href='http://netflix-account-update.zip/phish/20'>www.paypal.com/verify</a></body></html>
+
+--BOUNDARY123--",1
+"From: Team Lead <priya.sharma@microsoft.com>
+To: user@example.com
+Subject: Weekly team sync notes
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+
+Hi all,
+
+Attaching this week's sync notes. Let me know if I missed anything from the roadmap discussion. See you at the next standup.
+
+Best,
+Priya",0
+"From: Amazon Security <security-update@amaz0n-verify.top>
+To: user@example.com
+Subject: URGENT: Your account will be suspended
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@amaz0n-verify.top
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately. Click here to confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately. Click here to confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.</p><a href='http://amaz0n-verify.top/phish/59'>amazon.com/account</a></body></html>
+
+--BOUNDARY123--",1
+"From: Netflix Billing <billing@netflix-account-update.zip>
+To: user@example.com
+Subject: Unusual sign-in activity detected
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@netflix-account-update.zip
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+We noticed an unauthorized login attempt. For your security, please confirm your account details urgently. Immediate action is required to restore access.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>We noticed an unauthorized login attempt. For your security, please confirm your account details urgently. Immediate action is required to restore access.</p><a href='http://netflix-account-update.zip/phish/15'>amazon.com/account</a></body></html>
+
+--BOUNDARY123
+Content-Type: application/octet-stream; name=""invoice.zip""
+Content-Disposition: attachment; filename=""invoice.zip""
+Content-Transfer-Encoding: base64
+
+QUJDREVGRw==
+
+--BOUNDARY123--",1
+"From: IT Helpdesk <helpdesk@corp-it-alerts.click>
+To: user@example.com
+Subject: Payment failed - update required immediately
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@corp-it-alerts.click
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your last payment could not be processed. To avoid service suspension, please update your billing information immediately by verifying your account now.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your last payment could not be processed. To avoid service suspension, please update your billing information immediately by verifying your account now.</p><a href='http://corp-it-alerts.click/phish/25'>amazon.com/account</a></body></html>
+
+--BOUNDARY123--",1
+"From: GitHub <notifications@github.com>
+To: user@example.com
+Subject: Weekly team sync notes
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Hi all,
+
+Attaching this week's sync notes. Let me know if I missed anything from the roadmap discussion. See you at the next standup.
+
+Best,
+Priya
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Hi all,
+
+Attaching this week's sync notes. Let me know if I missed anything from the roadmap discussion. See you at the next standup.
+
+Best,
+Priya</p><a href='https://github.com/orders/4471'>View order</a></body></html>
+
+--BOUNDARY123--",0
+"From: Amazon <auto-confirm@amazon.com>
+To: user@example.com
+Subject: Weekly team sync notes
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Hi all,
+
+Attaching this week's sync notes. Let me know if I missed anything from the roadmap discussion. See you at the next standup.
+
+Best,
+Priya
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Hi all,
+
+Attaching this week's sync notes. Let me know if I missed anything from the roadmap discussion. See you at the next standup.
+
+Best,
+Priya</p><a href='https://amazon.com/orders/4471'>View order</a></body></html>
+
+--BOUNDARY123--",0
+"From: Team Lead <priya.sharma@microsoft.com>
+To: user@example.com
+Subject: Your order has shipped
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Hi there,
+
+Your recent order #4471 has shipped and is on its way. You can track the package from your account order history page.
+
+Thanks,
+The Team
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Hi there,
+
+Your recent order #4471 has shipped and is on its way. You can track the package from your account order history page.
+
+Thanks,
+The Team</p><a href='https://microsoft.com/orders/4471'>View order</a></body></html>
+
+--BOUNDARY123--",0
+"From: Bank Alert <alert@yourbank-online.kim>
+To: user@example.com
+Subject: Action Required: Password expires today
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@attacker-collect.ru
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your password expires today. To avoid being locked out, please verify your account immediately by clicking the secure link below. This is your final notice.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your password expires today. To avoid being locked out, please verify your account immediately by clicking the secure link below. This is your final notice.</p><a href='http://yourbank-online.kim/phish/44'>www.paypal.com/verify</a></body></html>
+
+--BOUNDARY123--",1
+"From: PayPal Support <support@paypal-secure-verify.xyz>
+To: user@example.com
+Subject: Payment failed - update required immediately
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@attacker-collect.ru
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your last payment could not be processed. To avoid service suspension, please update your billing information immediately by verifying your account now.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your last payment could not be processed. To avoid service suspension, please update your billing information immediately by verifying your account now.</p><a href='http://paypal-secure-verify.xyz/phish/8'>www.paypal.com/verify</a></body></html>
+
+--BOUNDARY123--",1
+"From: Google <no-reply@google.com>
+To: user@example.com
+Subject: New comment on your pull request
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Someone commented on your pull request #182. View the discussion and reply on the repository page whenever you get a chance.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Someone commented on your pull request #182. View the discussion and reply on the repository page whenever you get a chance.</p><a href='https://google.com/orders/4471'>View order</a></body></html>
+
+--BOUNDARY123--",0
+"From: GitHub <notifications@github.com>
+To: user@example.com
+Subject: Your monthly statement is ready
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your statement for this billing cycle is now available in your online account. No action is required unless you have questions about a specific charge.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your statement for this billing cycle is now available in your online account. No action is required unless you have questions about a specific charge.</p><a href='https://github.com/orders/4471'>View order</a></body></html>
+
+--BOUNDARY123--",0
+"From: LinkedIn <messages-noreply@linkedin.com>
+To: user@example.com
+Subject: Weekly team sync notes
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Hi all,
+
+Attaching this week's sync notes. Let me know if I missed anything from the roadmap discussion. See you at the next standup.
+
+Best,
+Priya
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Hi all,
+
+Attaching this week's sync notes. Let me know if I missed anything from the roadmap discussion. See you at the next standup.
+
+Best,
+Priya</p><a href='https://linkedin.com/orders/4471'>View order</a></body></html>
+
+--BOUNDARY123--",0
+"From: Amazon <auto-confirm@amazon.com>
+To: user@example.com
+Subject: Weekly team sync notes
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+
+Hi all,
+
+Attaching this week's sync notes. Let me know if I missed anything from the roadmap discussion. See you at the next standup.
+
+Best,
+Priya",0
+"From: Amazon Security <security-update@amaz0n-verify.top>
+To: user@example.com
+Subject: Payment failed - update required immediately
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@amaz0n-verify.top
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your last payment could not be processed. To avoid service suspension, please update your billing information immediately by verifying your account now.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your last payment could not be processed. To avoid service suspension, please update your billing information immediately by verifying your account now.</p><a href='http://amaz0n-verify.top/phish/21'>amazon.com/account</a></body></html>
+
+--BOUNDARY123
+Content-Type: application/octet-stream; name=""invoice.zip""
+Content-Disposition: attachment; filename=""invoice.zip""
+Content-Transfer-Encoding: base64
+
+QUJDREVGRw==
+
+--BOUNDARY123--",1
+"From: Bank Alert <alert@yourbank-online.kim>
+To: user@example.com
+Subject: URGENT: Your account will be suspended
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@attacker-collect.ru
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately. Click here to confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately. Click here to confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.</p><a href='http://yourbank-online.kim/phish/0'>www.paypal.com/verify</a></body></html>
+
+--BOUNDARY123
+Content-Type: application/octet-stream; name=""invoice.zip""
+Content-Disposition: attachment; filename=""invoice.zip""
+Content-Transfer-Encoding: base64
+
+QUJDREVGRw==
+
+--BOUNDARY123--",1
+"From: GitHub <notifications@github.com>
+To: user@example.com
+Subject: Your monthly statement is ready
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+
+Your statement for this billing cycle is now available in your online account. No action is required unless you have questions about a specific charge.",0
+"From: IT Helpdesk <helpdesk@corp-it-alerts.click>
+To: user@example.com
+Subject: URGENT: Your account will be suspended
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@attacker-collect.ru
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately. Click here to confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately. Click here to confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.</p><a href='http://corp-it-alerts.click/phish/38'>www.paypal.com/verify</a></body></html>
+
+--BOUNDARY123--",1
+"From: Amazon Security <security-update@amaz0n-verify.top>
+To: user@example.com
+Subject: URGENT: Your account will be suspended
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@amaz0n-verify.top
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately. Click here to confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately. Click here to confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.</p><a href='http://amaz0n-verify.top/phish/45'>amazon.com/account</a></body></html>
+
+--BOUNDARY123
+Content-Type: application/octet-stream; name=""invoice.zip""
+Content-Disposition: attachment; filename=""invoice.zip""
+Content-Transfer-Encoding: base64
+
+QUJDREVGRw==
+
+--BOUNDARY123--",1
+"From: HR Dept <hr@company.com>
+To: user@example.com
+Subject: Your order has shipped
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Hi there,
+
+Your recent order #4471 has shipped and is on its way. You can track the package from your account order history page.
+
+Thanks,
+The Team
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Hi there,
+
+Your recent order #4471 has shipped and is on its way. You can track the package from your account order history page.
+
+Thanks,
+The Team</p><a href='https://company.com/orders/4471'>View order</a></body></html>
+
+--BOUNDARY123--",0
+"From: Netflix Billing <billing@netflix-account-update.zip>
+To: user@example.com
+Subject: Unusual sign-in activity detected
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@netflix-account-update.zip
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+We noticed an unauthorized login attempt. For your security, please confirm your account details urgently. Immediate action is required to restore access.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>We noticed an unauthorized login attempt. For your security, please confirm your account details urgently. Immediate action is required to restore access.</p><a href='http://netflix-account-update.zip/phish/3'>amazon.com/account</a></body></html>
+
+--BOUNDARY123
+Content-Type: application/octet-stream; name=""invoice.zip""
+Content-Disposition: attachment; filename=""invoice.zip""
+Content-Transfer-Encoding: base64
+
+QUJDREVGRw==
+
+--BOUNDARY123--",1
+"From: LinkedIn <messages-noreply@linkedin.com>
+To: user@example.com
+Subject: Your order has shipped
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+
+Hi there,
+
+Your recent order #4471 has shipped and is on its way. You can track the package from your account order history page.
+
+Thanks,
+The Team",0
+"From: Amazon Security <security-update@amaz0n-verify.top>
+To: user@example.com
+Subject: Payment failed - update required immediately
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@amaz0n-verify.top
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your last payment could not be processed. To avoid service suspension, please update your billing information immediately by verifying your account now.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your last payment could not be processed. To avoid service suspension, please update your billing information immediately by verifying your account now.</p><a href='http://amaz0n-verify.top/phish/57'>amazon.com/account</a></body></html>
+
+--BOUNDARY123
+Content-Type: application/octet-stream; name=""invoice.zip""
+Content-Disposition: attachment; filename=""invoice.zip""
+Content-Transfer-Encoding: base64
+
+QUJDREVGRw==
+
+--BOUNDARY123--",1
+"From: HR Dept <hr@company.com>
+To: user@example.com
+Subject: Weekly team sync notes
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+
+Hi all,
+
+Attaching this week's sync notes. Let me know if I missed anything from the roadmap discussion. See you at the next standup.
+
+Best,
+Priya",0
+"From: LinkedIn <messages-noreply@linkedin.com>
+To: user@example.com
+Subject: Weekly team sync notes
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+
+Hi all,
+
+Attaching this week's sync notes. Let me know if I missed anything from the roadmap discussion. See you at the next standup.
+
+Best,
+Priya",0
+"From: Netflix Billing <billing@netflix-account-update.zip>
+To: user@example.com
+Subject: Action Required: Password expires today
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@attacker-collect.ru
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your password expires today. To avoid being locked out, please verify your account immediately by clicking the secure link below. This is your final notice.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your password expires today. To avoid being locked out, please verify your account immediately by clicking the secure link below. This is your final notice.</p><a href='http://netflix-account-update.zip/phish/10'>www.paypal.com/verify</a></body></html>
+
+--BOUNDARY123--",1
+"From: HR Dept <hr@company.com>
+To: user@example.com
+Subject: New comment on your pull request
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+
+Someone commented on your pull request #182. View the discussion and reply on the repository page whenever you get a chance.",0
+"From: Amazon <auto-confirm@amazon.com>
+To: user@example.com
+Subject: Your order has shipped
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+
+Hi there,
+
+Your recent order #4471 has shipped and is on its way. You can track the package from your account order history page.
+
+Thanks,
+The Team",0
+"From: Amazon Security <security-update@amaz0n-verify.top>
+To: user@example.com
+Subject: Unusual sign-in activity detected
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@amaz0n-verify.top
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+We noticed an unauthorized login attempt. For your security, please confirm your account details urgently. Immediate action is required to restore access.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>We noticed an unauthorized login attempt. For your security, please confirm your account details urgently. Immediate action is required to restore access.</p><a href='http://amaz0n-verify.top/phish/17'>amazon.com/account</a></body></html>
+
+--BOUNDARY123--",1
+"From: PayPal Support <support@paypal-secure-verify.xyz>
+To: user@example.com
+Subject: Action Required: Password expires today
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@paypal-secure-verify.xyz
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your password expires today. To avoid being locked out, please verify your account immediately by clicking the secure link below. This is your final notice.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your password expires today. To avoid being locked out, please verify your account immediately by clicking the secure link below. This is your final notice.</p><a href='http://paypal-secure-verify.xyz/phish/41'>amazon.com/account</a></body></html>
+
+--BOUNDARY123--",1
+"From: Google <no-reply@google.com>
+To: user@example.com
+Subject: New comment on your pull request
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+
+Someone commented on your pull request #182. View the discussion and reply on the repository page whenever you get a chance.",0
+"From: IT Helpdesk <helpdesk@corp-it-alerts.click>
+To: user@example.com
+Subject: URGENT: Your account will be suspended
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@attacker-collect.ru
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately. Click here to confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately. Click here to confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.</p><a href='http://corp-it-alerts.click/phish/32'>www.paypal.com/verify</a></body></html>
+
+--BOUNDARY123--",1
+"From: Amazon <auto-confirm@amazon.com>
+To: user@example.com
+Subject: Weekly team sync notes
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+
+Hi all,
+
+Attaching this week's sync notes. Let me know if I missed anything from the roadmap discussion. See you at the next standup.
+
+Best,
+Priya",0
+"From: GitHub <notifications@github.com>
+To: user@example.com
+Subject: Weekly team sync notes
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Hi all,
+
+Attaching this week's sync notes. Let me know if I missed anything from the roadmap discussion. See you at the next standup.
+
+Best,
+Priya
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Hi all,
+
+Attaching this week's sync notes. Let me know if I missed anything from the roadmap discussion. See you at the next standup.
+
+Best,
+Priya</p><a href='https://github.com/orders/4471'>View order</a></body></html>
+
+--BOUNDARY123--",0
+"From: Bank Alert <alert@yourbank-online.kim>
+To: user@example.com
+Subject: URGENT: Your account will be suspended
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@attacker-collect.ru
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately. Click here to confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately. Click here to confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.</p><a href='http://yourbank-online.kim/phish/16'>www.paypal.com/verify</a></body></html>
+
+--BOUNDARY123--",1
+"From: PayPal Support <support@paypal-secure-verify.xyz>
+To: user@example.com
+Subject: Payment failed - update required immediately
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@paypal-secure-verify.xyz
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your last payment could not be processed. To avoid service suspension, please update your billing information immediately by verifying your account now.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your last payment could not be processed. To avoid service suspension, please update your billing information immediately by verifying your account now.</p><a href='http://paypal-secure-verify.xyz/phish/43'>amazon.com/account</a></body></html>
+
+--BOUNDARY123--",1
+"From: Netflix Billing <billing@netflix-account-update.zip>
+To: user@example.com
+Subject: Action Required: Password expires today
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@netflix-account-update.zip
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your password expires today. To avoid being locked out, please verify your account immediately by clicking the secure link below. This is your final notice.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your password expires today. To avoid being locked out, please verify your account immediately by clicking the secure link below. This is your final notice.</p><a href='http://netflix-account-update.zip/phish/39'>amazon.com/account</a></body></html>
+
+--BOUNDARY123
+Content-Type: application/octet-stream; name=""invoice.zip""
+Content-Disposition: attachment; filename=""invoice.zip""
+Content-Transfer-Encoding: base64
+
+QUJDREVGRw==
+
+--BOUNDARY123--",1
+"From: Amazon Security <security-update@amaz0n-verify.top>
+To: user@example.com
+Subject: URGENT: Your account will be suspended
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@amaz0n-verify.top
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately. Click here to confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately. Click here to confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.</p><a href='http://amaz0n-verify.top/phish/37'>amazon.com/account</a></body></html>
+
+--BOUNDARY123--",1
+"From: HR Dept <hr@company.com>
+To: user@example.com
+Subject: New comment on your pull request
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Someone commented on your pull request #182. View the discussion and reply on the repository page whenever you get a chance.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Someone commented on your pull request #182. View the discussion and reply on the repository page whenever you get a chance.</p><a href='https://company.com/orders/4471'>View order</a></body></html>
+
+--BOUNDARY123--",0
+"From: HR Dept <hr@company.com>
+To: user@example.com
+Subject: Your monthly statement is ready
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+
+Your statement for this billing cycle is now available in your online account. No action is required unless you have questions about a specific charge.",0
+"From: PayPal Support <support@paypal-secure-verify.xyz>
+To: user@example.com
+Subject: Unusual sign-in activity detected
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@paypal-secure-verify.xyz
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+We noticed an unauthorized login attempt. For your security, please confirm your account details urgently. Immediate action is required to restore access.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>We noticed an unauthorized login attempt. For your security, please confirm your account details urgently. Immediate action is required to restore access.</p><a href='http://paypal-secure-verify.xyz/phish/13'>amazon.com/account</a></body></html>
+
+--BOUNDARY123--",1
+"From: Team Lead <priya.sharma@microsoft.com>
+To: user@example.com
+Subject: Your monthly statement is ready
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+
+Your statement for this billing cycle is now available in your online account. No action is required unless you have questions about a specific charge.",0
+"From: Google <no-reply@google.com>
+To: user@example.com
+Subject: New comment on your pull request
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+
+Someone commented on your pull request #182. View the discussion and reply on the repository page whenever you get a chance.",0
+"From: LinkedIn <messages-noreply@linkedin.com>
+To: user@example.com
+Subject: New comment on your pull request
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+
+Someone commented on your pull request #182. View the discussion and reply on the repository page whenever you get a chance.",0
+"From: Amazon Security <security-update@amaz0n-verify.top>
+To: user@example.com
+Subject: URGENT: Your account will be suspended
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@amaz0n-verify.top
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately. Click here to confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately. Click here to confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.</p><a href='http://amaz0n-verify.top/phish/49'>amazon.com/account</a></body></html>
+
+--BOUNDARY123--",1
+"From: PayPal Support <support@paypal-secure-verify.xyz>
+To: user@example.com
+Subject: Unusual sign-in activity detected
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@paypal-secure-verify.xyz
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+We noticed an unauthorized login attempt. For your security, please confirm your account details urgently. Immediate action is required to restore access.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>We noticed an unauthorized login attempt. For your security, please confirm your account details urgently. Immediate action is required to restore access.</p><a href='http://paypal-secure-verify.xyz/phish/55'>amazon.com/account</a></body></html>
+
+--BOUNDARY123--",1
+"From: Amazon Security <security-update@amaz0n-verify.top>
+To: user@example.com
+Subject: URGENT: Your account will be suspended
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@amaz0n-verify.top
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately. Click here to confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately. Click here to confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.</p><a href='http://amaz0n-verify.top/phish/35'>amazon.com/account</a></body></html>
+
+--BOUNDARY123--",1
+"From: GitHub <notifications@github.com>
+To: user@example.com
+Subject: Your order has shipped
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Hi there,
+
+Your recent order #4471 has shipped and is on its way. You can track the package from your account order history page.
+
+Thanks,
+The Team
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Hi there,
+
+Your recent order #4471 has shipped and is on its way. You can track the package from your account order history page.
+
+Thanks,
+The Team</p><a href='https://github.com/orders/4471'>View order</a></body></html>
+
+--BOUNDARY123--",0
+"From: Google <no-reply@google.com>
+To: user@example.com
+Subject: Your order has shipped
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+
+Hi there,
+
+Your recent order #4471 has shipped and is on its way. You can track the package from your account order history page.
+
+Thanks,
+The Team",0
+"From: HR Dept <hr@company.com>
+To: user@example.com
+Subject: Your monthly statement is ready
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your statement for this billing cycle is now available in your online account. No action is required unless you have questions about a specific charge.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your statement for this billing cycle is now available in your online account. No action is required unless you have questions about a specific charge.</p><a href='https://company.com/orders/4471'>View order</a></body></html>
+
+--BOUNDARY123--",0
+"From: Amazon Security <security-update@amaz0n-verify.top>
+To: user@example.com
+Subject: Unusual sign-in activity detected
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@amaz0n-verify.top
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+We noticed an unauthorized login attempt. For your security, please confirm your account details urgently. Immediate action is required to restore access.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>We noticed an unauthorized login attempt. For your security, please confirm your account details urgently. Immediate action is required to restore access.</p><a href='http://amaz0n-verify.top/phish/5'>amazon.com/account</a></body></html>
+
+--BOUNDARY123--",1
+"From: Amazon Security <security-update@amaz0n-verify.top>
+To: user@example.com
+Subject: Action Required: Password expires today
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@attacker-collect.ru
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your password expires today. To avoid being locked out, please verify your account immediately by clicking the secure link below. This is your final notice.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your password expires today. To avoid being locked out, please verify your account immediately by clicking the secure link below. This is your final notice.</p><a href='http://amaz0n-verify.top/phish/22'>www.paypal.com/verify</a></body></html>
+
+--BOUNDARY123--",1
+"From: LinkedIn <messages-noreply@linkedin.com>
+To: user@example.com
+Subject: New comment on your pull request
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Someone commented on your pull request #182. View the discussion and reply on the repository page whenever you get a chance.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Someone commented on your pull request #182. View the discussion and reply on the repository page whenever you get a chance.</p><a href='https://linkedin.com/orders/4471'>View order</a></body></html>
+
+--BOUNDARY123--",0
+"From: IT Helpdesk <helpdesk@corp-it-alerts.click>
+To: user@example.com
+Subject: Payment failed - update required immediately
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@corp-it-alerts.click
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your last payment could not be processed. To avoid service suspension, please update your billing information immediately by verifying your account now.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your last payment could not be processed. To avoid service suspension, please update your billing information immediately by verifying your account now.</p><a href='http://corp-it-alerts.click/phish/7'>amazon.com/account</a></body></html>
+
+--BOUNDARY123--",1
+"From: Netflix Billing <billing@netflix-account-update.zip>
+To: user@example.com
+Subject: URGENT: Your account will be suspended
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@attacker-collect.ru
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately. Click here to confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately. Click here to confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.</p><a href='http://netflix-account-update.zip/phish/4'>www.paypal.com/verify</a></body></html>
+
+--BOUNDARY123--",1
+"From: Amazon Security <security-update@amaz0n-verify.top>
+To: user@example.com
+Subject: Action Required: Password expires today
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@amaz0n-verify.top
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your password expires today. To avoid being locked out, please verify your account immediately by clicking the secure link below. This is your final notice.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your password expires today. To avoid being locked out, please verify your account immediately by clicking the secure link below. This is your final notice.</p><a href='http://amaz0n-verify.top/phish/51'>amazon.com/account</a></body></html>
+
+--BOUNDARY123
+Content-Type: application/octet-stream; name=""invoice.zip""
+Content-Disposition: attachment; filename=""invoice.zip""
+Content-Transfer-Encoding: base64
+
+QUJDREVGRw==
+
+--BOUNDARY123--",1
+"From: PayPal Support <support@paypal-secure-verify.xyz>
+To: user@example.com
+Subject: Action Required: Password expires today
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@attacker-collect.ru
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your password expires today. To avoid being locked out, please verify your account immediately by clicking the secure link below. This is your final notice.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your password expires today. To avoid being locked out, please verify your account immediately by clicking the secure link below. This is your final notice.</p><a href='http://paypal-secure-verify.xyz/phish/26'>www.paypal.com/verify</a></body></html>
+
+--BOUNDARY123--",1
+"From: Amazon <auto-confirm@amazon.com>
+To: user@example.com
+Subject: Your order has shipped
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Hi there,
+
+Your recent order #4471 has shipped and is on its way. You can track the package from your account order history page.
+
+Thanks,
+The Team
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Hi there,
+
+Your recent order #4471 has shipped and is on its way. You can track the package from your account order history page.
+
+Thanks,
+The Team</p><a href='https://amazon.com/orders/4471'>View order</a></body></html>
+
+--BOUNDARY123--",0
+"From: Netflix Billing <billing@netflix-account-update.zip>
+To: user@example.com
+Subject: Action Required: Password expires today
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@attacker-collect.ru
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your password expires today. To avoid being locked out, please verify your account immediately by clicking the secure link below. This is your final notice.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your password expires today. To avoid being locked out, please verify your account immediately by clicking the secure link below. This is your final notice.</p><a href='http://netflix-account-update.zip/phish/34'>www.paypal.com/verify</a></body></html>
+
+--BOUNDARY123--",1
+"From: Google <no-reply@google.com>
+To: user@example.com
+Subject: New comment on your pull request
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Someone commented on your pull request #182. View the discussion and reply on the repository page whenever you get a chance.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Someone commented on your pull request #182. View the discussion and reply on the repository page whenever you get a chance.</p><a href='https://google.com/orders/4471'>View order</a></body></html>
+
+--BOUNDARY123--",0
+"From: IT Helpdesk <helpdesk@corp-it-alerts.click>
+To: user@example.com
+Subject: Payment failed - update required immediately
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@corp-it-alerts.click
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your last payment could not be processed. To avoid service suspension, please update your billing information immediately by verifying your account now.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your last payment could not be processed. To avoid service suspension, please update your billing information immediately by verifying your account now.</p><a href='http://corp-it-alerts.click/phish/27'>amazon.com/account</a></body></html>
+
+--BOUNDARY123
+Content-Type: application/octet-stream; name=""invoice.zip""
+Content-Disposition: attachment; filename=""invoice.zip""
+Content-Transfer-Encoding: base64
+
+QUJDREVGRw==
+
+--BOUNDARY123--",1
+"From: Amazon Security <security-update@amaz0n-verify.top>
+To: user@example.com
+Subject: Unusual sign-in activity detected
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@amaz0n-verify.top
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+We noticed an unauthorized login attempt. For your security, please confirm your account details urgently. Immediate action is required to restore access.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>We noticed an unauthorized login attempt. For your security, please confirm your account details urgently. Immediate action is required to restore access.</p><a href='http://amaz0n-verify.top/phish/9'>amazon.com/account</a></body></html>
+
+--BOUNDARY123
+Content-Type: application/octet-stream; name=""invoice.zip""
+Content-Disposition: attachment; filename=""invoice.zip""
+Content-Transfer-Encoding: base64
+
+QUJDREVGRw==
+
+--BOUNDARY123--",1
+"From: PayPal Support <support@paypal-secure-verify.xyz>
+To: user@example.com
+Subject: URGENT: Your account will be suspended
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@attacker-collect.ru
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately. Click here to confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately. Click here to confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.</p><a href='http://paypal-secure-verify.xyz/phish/14'>www.paypal.com/verify</a></body></html>
+
+--BOUNDARY123--",1
+"From: Bank Alert <alert@yourbank-online.kim>
+To: user@example.com
+Subject: Action Required: Password expires today
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@attacker-collect.ru
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your password expires today. To avoid being locked out, please verify your account immediately by clicking the secure link below. This is your final notice.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your password expires today. To avoid being locked out, please verify your account immediately by clicking the secure link below. This is your final notice.</p><a href='http://yourbank-online.kim/phish/56'>www.paypal.com/verify</a></body></html>
+
+--BOUNDARY123--",1
+"From: Bank Alert <alert@yourbank-online.kim>
+To: user@example.com
+Subject: Unusual sign-in activity detected
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@attacker-collect.ru
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+We noticed an unauthorized login attempt. For your security, please confirm your account details urgently. Immediate action is required to restore access.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>We noticed an unauthorized login attempt. For your security, please confirm your account details urgently. Immediate action is required to restore access.</p><a href='http://yourbank-online.kim/phish/50'>www.paypal.com/verify</a></body></html>
+
+--BOUNDARY123--",1
+"From: Team Lead <priya.sharma@microsoft.com>
+To: user@example.com
+Subject: Weekly team sync notes
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+
+Hi all,
+
+Attaching this week's sync notes. Let me know if I missed anything from the roadmap discussion. See you at the next standup.
+
+Best,
+Priya",0
+"From: Team Lead <priya.sharma@microsoft.com>
+To: user@example.com
+Subject: New comment on your pull request
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Someone commented on your pull request #182. View the discussion and reply on the repository page whenever you get a chance.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Someone commented on your pull request #182. View the discussion and reply on the repository page whenever you get a chance.</p><a href='https://microsoft.com/orders/4471'>View order</a></body></html>
+
+--BOUNDARY123--",0
+"From: Amazon <auto-confirm@amazon.com>
+To: user@example.com
+Subject: New comment on your pull request
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+
+Someone commented on your pull request #182. View the discussion and reply on the repository page whenever you get a chance.",0
+"From: PayPal Support <support@paypal-secure-verify.xyz>
+To: user@example.com
+Subject: Action Required: Password expires today
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@attacker-collect.ru
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your password expires today. To avoid being locked out, please verify your account immediately by clicking the secure link below. This is your final notice.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your password expires today. To avoid being locked out, please verify your account immediately by clicking the secure link below. This is your final notice.</p><a href='http://paypal-secure-verify.xyz/phish/52'>www.paypal.com/verify</a></body></html>
+
+--BOUNDARY123--",1
+"From: PayPal Support <support@paypal-secure-verify.xyz>
+To: user@example.com
+Subject: URGENT: Your account will be suspended
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@paypal-secure-verify.xyz
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately. Click here to confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately. Click here to confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.</p><a href='http://paypal-secure-verify.xyz/phish/31'>amazon.com/account</a></body></html>
+
+--BOUNDARY123--",1
+"From: Netflix Billing <billing@netflix-account-update.zip>
+To: user@example.com
+Subject: Action Required: Password expires today
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@attacker-collect.ru
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your password expires today. To avoid being locked out, please verify your account immediately by clicking the secure link below. This is your final notice.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your password expires today. To avoid being locked out, please verify your account immediately by clicking the secure link below. This is your final notice.</p><a href='http://netflix-account-update.zip/phish/24'>www.paypal.com/verify</a></body></html>
+
+--BOUNDARY123
+Content-Type: application/octet-stream; name=""invoice.zip""
+Content-Disposition: attachment; filename=""invoice.zip""
+Content-Transfer-Encoding: base64
+
+QUJDREVGRw==
+
+--BOUNDARY123--",1
+"From: Netflix Billing <billing@netflix-account-update.zip>
+To: user@example.com
+Subject: URGENT: Your account will be suspended
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@netflix-account-update.zip
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately. Click here to confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately. Click here to confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.</p><a href='http://netflix-account-update.zip/phish/11'>amazon.com/account</a></body></html>
+
+--BOUNDARY123--",1
+"From: Netflix Billing <billing@netflix-account-update.zip>
+To: user@example.com
+Subject: Action Required: Password expires today
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@netflix-account-update.zip
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your password expires today. To avoid being locked out, please verify your account immediately by clicking the secure link below. This is your final notice.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your password expires today. To avoid being locked out, please verify your account immediately by clicking the secure link below. This is your final notice.</p><a href='http://netflix-account-update.zip/phish/33'>amazon.com/account</a></body></html>
+
+--BOUNDARY123
+Content-Type: application/octet-stream; name=""invoice.zip""
+Content-Disposition: attachment; filename=""invoice.zip""
+Content-Transfer-Encoding: base64
+
+QUJDREVGRw==
+
+--BOUNDARY123--",1
+"From: Netflix Billing <billing@netflix-account-update.zip>
+To: user@example.com
+Subject: Payment failed - update required immediately
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@netflix-account-update.zip
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your last payment could not be processed. To avoid service suspension, please update your billing information immediately by verifying your account now.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your last payment could not be processed. To avoid service suspension, please update your billing information immediately by verifying your account now.</p><a href='http://netflix-account-update.zip/phish/29'>amazon.com/account</a></body></html>
+
+--BOUNDARY123--",1
+"From: Team Lead <priya.sharma@microsoft.com>
+To: user@example.com
+Subject: Your monthly statement is ready
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your statement for this billing cycle is now available in your online account. No action is required unless you have questions about a specific charge.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your statement for this billing cycle is now available in your online account. No action is required unless you have questions about a specific charge.</p><a href='https://microsoft.com/orders/4471'>View order</a></body></html>
+
+--BOUNDARY123--",0
+"From: HR Dept <hr@company.com>
+To: user@example.com
+Subject: Your order has shipped
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Hi there,
+
+Your recent order #4471 has shipped and is on its way. You can track the package from your account order history page.
+
+Thanks,
+The Team
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Hi there,
+
+Your recent order #4471 has shipped and is on its way. You can track the package from your account order history page.
+
+Thanks,
+The Team</p><a href='https://company.com/orders/4471'>View order</a></body></html>
+
+--BOUNDARY123--",0
+"From: Amazon <auto-confirm@amazon.com>
+To: user@example.com
+Subject: Weekly team sync notes
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Hi all,
+
+Attaching this week's sync notes. Let me know if I missed anything from the roadmap discussion. See you at the next standup.
+
+Best,
+Priya
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Hi all,
+
+Attaching this week's sync notes. Let me know if I missed anything from the roadmap discussion. See you at the next standup.
+
+Best,
+Priya</p><a href='https://amazon.com/orders/4471'>View order</a></body></html>
+
+--BOUNDARY123--",0
+"From: Netflix Billing <billing@netflix-account-update.zip>
+To: user@example.com
+Subject: Payment failed - update required immediately
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@attacker-collect.ru
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your last payment could not be processed. To avoid service suspension, please update your billing information immediately by verifying your account now.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your last payment could not be processed. To avoid service suspension, please update your billing information immediately by verifying your account now.</p><a href='http://netflix-account-update.zip/phish/42'>www.paypal.com/verify</a></body></html>
+
+--BOUNDARY123
+Content-Type: application/octet-stream; name=""invoice.zip""
+Content-Disposition: attachment; filename=""invoice.zip""
+Content-Transfer-Encoding: base64
+
+QUJDREVGRw==
+
+--BOUNDARY123--",1
+"From: IT Helpdesk <helpdesk@corp-it-alerts.click>
+To: user@example.com
+Subject: Payment failed - update required immediately
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@attacker-collect.ru
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your last payment could not be processed. To avoid service suspension, please update your billing information immediately by verifying your account now.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your last payment could not be processed. To avoid service suspension, please update your billing information immediately by verifying your account now.</p><a href='http://corp-it-alerts.click/phish/40'>www.paypal.com/verify</a></body></html>
+
+--BOUNDARY123--",1
+"From: GitHub <notifications@github.com>
+To: user@example.com
+Subject: New comment on your pull request
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+
+Someone commented on your pull request #182. View the discussion and reply on the repository page whenever you get a chance.",0
+"From: Google <no-reply@google.com>
+To: user@example.com
+Subject: Your monthly statement is ready
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+
+Your statement for this billing cycle is now available in your online account. No action is required unless you have questions about a specific charge.",0
+"From: HR Dept <hr@company.com>
+To: user@example.com
+Subject: Your order has shipped
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Hi there,
+
+Your recent order #4471 has shipped and is on its way. You can track the package from your account order history page.
+
+Thanks,
+The Team
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Hi there,
+
+Your recent order #4471 has shipped and is on its way. You can track the package from your account order history page.
+
+Thanks,
+The Team</p><a href='https://company.com/orders/4471'>View order</a></body></html>
+
+--BOUNDARY123--",0
+"From: GitHub <notifications@github.com>
+To: user@example.com
+Subject: Your monthly statement is ready
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your statement for this billing cycle is now available in your online account. No action is required unless you have questions about a specific charge.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your statement for this billing cycle is now available in your online account. No action is required unless you have questions about a specific charge.</p><a href='https://github.com/orders/4471'>View order</a></body></html>
+
+--BOUNDARY123--",0
+"From: PayPal Support <support@paypal-secure-verify.xyz>
+To: user@example.com
+Subject: Payment failed - update required immediately
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@attacker-collect.ru
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your last payment could not be processed. To avoid service suspension, please update your billing information immediately by verifying your account now.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your last payment could not be processed. To avoid service suspension, please update your billing information immediately by verifying your account now.</p><a href='http://paypal-secure-verify.xyz/phish/54'>www.paypal.com/verify</a></body></html>
+
+--BOUNDARY123
+Content-Type: application/octet-stream; name=""invoice.zip""
+Content-Disposition: attachment; filename=""invoice.zip""
+Content-Transfer-Encoding: base64
+
+QUJDREVGRw==
+
+--BOUNDARY123--",1
+"From: Amazon <auto-confirm@amazon.com>
+To: user@example.com
+Subject: Weekly team sync notes
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+
+Hi all,
+
+Attaching this week's sync notes. Let me know if I missed anything from the roadmap discussion. See you at the next standup.
+
+Best,
+Priya",0
+"From: GitHub <notifications@github.com>
+To: user@example.com
+Subject: Weekly team sync notes
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+
+Hi all,
+
+Attaching this week's sync notes. Let me know if I missed anything from the roadmap discussion. See you at the next standup.
+
+Best,
+Priya",0
+"From: HR Dept <hr@company.com>
+To: user@example.com
+Subject: Your order has shipped
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+
+Hi there,
+
+Your recent order #4471 has shipped and is on its way. You can track the package from your account order history page.
+
+Thanks,
+The Team",0
+"From: Bank Alert <alert@yourbank-online.kim>
+To: user@example.com
+Subject: Payment failed - update required immediately
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@yourbank-online.kim
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your last payment could not be processed. To avoid service suspension, please update your billing information immediately by verifying your account now.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your last payment could not be processed. To avoid service suspension, please update your billing information immediately by verifying your account now.</p><a href='http://yourbank-online.kim/phish/1'>amazon.com/account</a></body></html>
+
+--BOUNDARY123--",1
+"From: Netflix Billing <billing@netflix-account-update.zip>
+To: user@example.com
+Subject: Payment failed - update required immediately
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@attacker-collect.ru
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your last payment could not be processed. To avoid service suspension, please update your billing information immediately by verifying your account now.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your last payment could not be processed. To avoid service suspension, please update your billing information immediately by verifying your account now.</p><a href='http://netflix-account-update.zip/phish/2'>www.paypal.com/verify</a></body></html>
+
+--BOUNDARY123--",1
+"From: HR Dept <hr@company.com>
+To: user@example.com
+Subject: New comment on your pull request
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Someone commented on your pull request #182. View the discussion and reply on the repository page whenever you get a chance.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Someone commented on your pull request #182. View the discussion and reply on the repository page whenever you get a chance.</p><a href='https://company.com/orders/4471'>View order</a></body></html>
+
+--BOUNDARY123--",0
+"From: Amazon <auto-confirm@amazon.com>
+To: user@example.com
+Subject: Your monthly statement is ready
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+
+Your statement for this billing cycle is now available in your online account. No action is required unless you have questions about a specific charge.",0
+"From: GitHub <notifications@github.com>
+To: user@example.com
+Subject: Your order has shipped
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Hi there,
+
+Your recent order #4471 has shipped and is on its way. You can track the package from your account order history page.
+
+Thanks,
+The Team
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Hi there,
+
+Your recent order #4471 has shipped and is on its way. You can track the package from your account order history page.
+
+Thanks,
+The Team</p><a href='https://github.com/orders/4471'>View order</a></body></html>
+
+--BOUNDARY123--",0
+"From: Bank Alert <alert@yourbank-online.kim>
+To: user@example.com
+Subject: URGENT: Your account will be suspended
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@attacker-collect.ru
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately. Click here to confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately. Click here to confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.</p><a href='http://yourbank-online.kim/phish/48'>www.paypal.com/verify</a></body></html>
+
+--BOUNDARY123
+Content-Type: application/octet-stream; name=""invoice.zip""
+Content-Disposition: attachment; filename=""invoice.zip""
+Content-Transfer-Encoding: base64
+
+QUJDREVGRw==
+
+--BOUNDARY123--",1
+"From: Amazon Security <security-update@amaz0n-verify.top>
+To: user@example.com
+Subject: Action Required: Password expires today
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@attacker-collect.ru
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Your password expires today. To avoid being locked out, please verify your account immediately by clicking the secure link below. This is your final notice.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Your password expires today. To avoid being locked out, please verify your account immediately by clicking the secure link below. This is your final notice.</p><a href='http://amaz0n-verify.top/phish/36'>www.paypal.com/verify</a></body></html>
+
+--BOUNDARY123
+Content-Type: application/octet-stream; name=""invoice.zip""
+Content-Disposition: attachment; filename=""invoice.zip""
+Content-Transfer-Encoding: base64
+
+QUJDREVGRw==
+
+--BOUNDARY123--",1
+"From: Netflix Billing <billing@netflix-account-update.zip>
+To: user@example.com
+Subject: URGENT: Your account will be suspended
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@attacker-collect.ru
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=""BOUNDARY123""
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately. Click here to confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within 24 hours unless you verify your information immediately. Click here to confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.</p><a href='http://netflix-account-update.zip/phish/58'>www.paypal.com/verify</a></body></html>
+
+--BOUNDARY123--",1
+"From: GitHub <notifications@github.com>
+To: user@example.com
+Subject: Your monthly statement is ready
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+
+Your statement for this billing cycle is now available in your online account. No action is required unless you have questions about a specific charge.",0

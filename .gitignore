@@ -1,0 +1,32 @@
+# Virtual Environments
+venv/
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Model checkpoints
+**/checkpoints/
+*.pt
+*.pth
+*.safetensors
+*.onnx
+*.h5
+*.joblib
+*.pkl
+
+# Artifacts
+**/artifacts/
+
+# Cache
+.pytest_cache/
+.mypy_cache/
+.cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env

@@ -1,0 +1,9 @@
+cd "c:\Users\akaja\Downloads\Website URL Detection"
+python models/train.py --> to train
+
+python test_model.py --> to test
+python run_ml_pipeline.py
+python -m models.predict
+from models.predict import predict_url
+
+print(predict_url("https://www.google.com"))

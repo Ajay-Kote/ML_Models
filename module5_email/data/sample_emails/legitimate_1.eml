@@ -1,0 +1,25 @@
+From: Amazon <auto-confirm@amazon.com>
+To: user@example.com
+Subject: Your order has shipped
+Authentication-Results: mx.example.com; spf=pass; dkim=pass; dmarc=pass
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="BOUNDARY123"
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Hi there,
+
+Your recent order #4471 has shipped and is on its way. You can track the package
+from your account order history page.
+
+Thanks,
+The Amazon Team
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Hi there, your recent order #4471 has shipped and is on its way.</p>
+<a href='https://amazon.com/orders/4471'>View order</a></body></html>
+
+--BOUNDARY123--

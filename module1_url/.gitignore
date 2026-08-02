@@ -1,0 +1,84 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+.venv/
+venv/
+env/
+ENV/
+
+# =========================
+# Jupyter
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# Build / Distribution
+# =========================
+build/
+dist/
+*.egg-info/
+
+# =========================
+# Logs
+# =========================
+*.log
+logs/
+
+# =========================
+# Environment Variables
+# =========================
+.env
+.env.*
+
+# =========================
+# IDE Files
+# =========================
+.vscode/
+.idea/
+*.swp
+
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Python Testing
+# =========================
+.pytest_cache/
+.coverage
+htmlcov/
+
+# =========================
+# Model Files (Optional)
+# Uncomment if you DON'T want
+# to upload trained models
+# =========================
+# models/*.pkl
+# models/*.joblib
+# models/*.h5
+# models/*.pt
+# models/*.onnx
+
+# =========================
+# Results (Optional)
+# Uncomment if generated
+# =========================
+# results/
+
+# =========================
+# Temporary Files
+# =========================
+*.tmp
+*.bak
+
+# =========================
+# Runtime Cache
+# =========================
+.cache/

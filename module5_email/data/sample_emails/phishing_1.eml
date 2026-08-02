@@ -1,0 +1,34 @@
+From: PayPal Support <support@paypal-secure-verify.xyz>
+To: user@example.com
+Subject: URGENT: Your account will be suspended
+Authentication-Results: mx.example.com; spf=fail; dkim=fail; dmarc=fail
+Reply-To: reply@attacker-collect.ru
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="BOUNDARY123"
+
+--BOUNDARY123
+Content-Type: text/plain; charset=utf-8
+
+Dear Customer,
+
+We detected unusual activity on your account. Your account will be suspended within
+24 hours unless you verify your information immediately. Click the link below to
+confirm your identity and avoid permanent restriction.
+
+Failure to act now will result in loss of access.
+
+--BOUNDARY123
+Content-Type: text/html; charset=utf-8
+
+<html><body><p>Dear Customer, we detected unusual activity on your account. Your
+account will be suspended within 24 hours unless you verify immediately.</p>
+<a href='http://paypal-secure-verify.xyz/phish/1'>www.paypal.com/verify</a></body></html>
+
+--BOUNDARY123
+Content-Type: application/octet-stream; name="invoice.zip"
+Content-Disposition: attachment; filename="invoice.zip"
+Content-Transfer-Encoding: base64
+
+QUJDREVGRw==
+
+--BOUNDARY123--
