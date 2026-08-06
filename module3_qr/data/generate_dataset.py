@@ -75,17 +75,29 @@ def generation_params(label):
     error-correction (attackers maximize payload density) and tighter quiet
     zones (fit more into a small printed/screenshotted code); legitimate
     samples skew toward safer, more standard defaults.
+
+    box_size/border ranges deliberately OVERLAP between classes (only the
+    *probability* differs) -- a real attacker isn't forced to use a small
+    box_size any more than a legitimate generator is forced to use a large
+    one. Disjoint ranges would let the model separate classes purely on QR
+    physical dimensions instead of on genuinely suspicious signal (payload
+    URL structure, texture, etc.), which is an unrealistic shortcut.
     """
+    box_sizes = [4, 5, 6, 7, 8, 9, 10, 11, 12]
+    borders = [1, 2, 3, 4, 5]
+
     if label == 1:  # malicious
         ec = RNG.choices([ERROR_CORRECT_L, ERROR_CORRECT_M, ERROR_CORRECT_Q, ERROR_CORRECT_H],
                           weights=[0.55, 0.30, 0.10, 0.05])[0]
-        box_size = RNG.choice([4, 5, 6, 10, 11, 12])   # more variable / extreme
-        border = RNG.choice([1, 1, 2])                  # tight quiet zone
+        box_size = RNG.choices(box_sizes,
+                                weights=[0.16, 0.14, 0.13, 0.09, 0.07, 0.07, 0.11, 0.11, 0.12])[0]
+        border = RNG.choices(borders, weights=[0.32, 0.26, 0.18, 0.14, 0.10])[0]
     else:  # legitimate
         ec = RNG.choices([ERROR_CORRECT_L, ERROR_CORRECT_M, ERROR_CORRECT_Q, ERROR_CORRECT_H],
                           weights=[0.15, 0.45, 0.30, 0.10])[0]
-        box_size = RNG.choice([7, 8, 9])
-        border = RNG.choice([4, 4, 5])
+        box_size = RNG.choices(box_sizes,
+                                weights=[0.07, 0.07, 0.09, 0.13, 0.16, 0.16, 0.11, 0.10, 0.11])[0]
+        border = RNG.choices(borders, weights=[0.08, 0.12, 0.18, 0.30, 0.32])[0]
     return ec, box_size, border
 
 

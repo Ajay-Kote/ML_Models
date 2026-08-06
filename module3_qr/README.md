@@ -51,16 +51,36 @@ uvicorn api.app:app --reload --port 8003
 # then: curl -F "file=@data/raw/images/qr_00001.png" http://localhost:8003/analyze-qr
 ```
 
+## Training results
+
+(80/20 stratified split, 800 synthetic images)
+
+| Metric | Score |
+|---|---|
+| Accuracy | 86.25% |
+| Precision | 84.52% |
+| Recall | 88.75% |
+| F1 | 86.59% |
+| ROC-AUC | 93.03% |
+
+**Note:** an earlier version of `generate_dataset.py` used disjoint `box_size`/`border`
+ranges per class (e.g. malicious always `border∈{1,2}`, legitimate always `border∈{4,5}`),
+which let the model separate classes perfectly (100% on every metric) just from QR physical
+dimensions — a synthetic-data artifact, not a real capability. The ranges now overlap between
+classes (only the *sampling weight* differs, matching the realistic tendency described below),
+so the model has to rely on genuine signal (texture, structure, the embedded URL) instead.
+
 ## Design notes / how this maps to the spec
 
 - **Why synthetic data**: Section 10 of the design doc notes no public
   malicious-QR image dataset exists. `generate_dataset.py` builds one by
   rendering real QR codes for legitimate vs. phishing-style URLs (reusing
   the URL module's own risk patterns: IP hosts, brand-keyword subdomains,
-  high-risk TLDs, long random strings), while varying error-correction
-  level, box size, and border in a way that correlates with the label —
-  mirroring how quishing generators favor low error-correction / dense
-  encoding to cram payloads into small printed or screenshotted codes.
+  high-risk TLDs, long random strings), while *weighting* (not forcing)
+  error-correction level, box size, and border toward values that mirror
+  how quishing generators favor low error-correction / dense encoding to
+  cram payloads into small printed or screenshotted codes — ranges overlap
+  between classes so this is a tendency, not a deterministic tell.
 - **Train/serve consistency**: metadata features are extracted the *same
   way* at train and inference time (estimated from the raw image via
   `cv2.QRCodeDetector`, not from generation-time ground truth), to avoid
