@@ -24,6 +24,7 @@ from pydantic import BaseModel
 
 from adapters import adapt_url, adapt_sms, adapt_qr, adapt_image, adapt_email
 from fuse import fuse, FusionInputError
+from fuse_ml import fuse_ml
 
 # ---------------------------------------------------------------------------
 # MODULE_PATHS -- confirmed against actual folder layout
@@ -157,7 +158,14 @@ def predict(request: FusionRequest):
         )
 
     try:
-        result = fuse(module_outputs)
+        result = fuse_ml(module_outputs)  # ML meta-learner fusion (primary)
+    except FileNotFoundError:
+        # meta_learner.joblib missing/corrupted -> fall back to rule-based
+        # weighted-average fusion so the API never goes down
+        try:
+            result = fuse(module_outputs)
+        except FusionInputError as e:
+            raise HTTPException(status_code=422, detail=str(e))
     except FusionInputError as e:
         raise HTTPException(status_code=422, detail=str(e))
 

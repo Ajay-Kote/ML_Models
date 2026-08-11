@@ -33,6 +33,7 @@ label, so results can be fused into a single adaptive risk engine.
 | [`module3_qr`](module3_qr) | Malicious ("quishing") QR codes | Pixel + metadata + texture features → LightGBM | ✅ Trained & working |
 | [`module4_image`](module4_image) | Forged payment screenshots | PaddleOCR + EfficientNet-B0 → fusion → LightGBM | ✅ Trained & working |
 | [`module5_email`](module5_email) | Phishing emails | DistilBERT (body) + LightGBM (headers/metadata) → MLP fusion | ✅ Trained & working |
+| [`fusion_engine`](fusion_engine) | Combines all 5 modules into one risk score | Logistic Regression meta-learner (adaptive weighting) + rule-based override + FastAPI orchestrator | ✅ Working |
 
 Each module folder is self-contained: its own `data/`, `models/`, `explainability/`,
 `api/`, and `requirements.txt`, plus a detailed README covering setup, training,
@@ -77,6 +78,7 @@ ML_Models/
 ├── module3_qr/         # QR code (quishing) detection
 ├── module4_image/       # Payment screenshot forgery detection
 ├── module5_email/        # Email phishing detection
+├── fusion_engine/        # Combines all 5 modules into one adaptive risk score
 └── .gitignore
 ```
 
@@ -85,9 +87,16 @@ ML_Models/
 - No public dataset exists for quishing QR codes or malicious payment screenshots, so
   modules 3 and 4 use synthetically generated data — see their READMEs for how and why,
   and what would be needed to move to real-world data.
-- Modules are designed to be combined by a top-level Adaptive Risk Fusion Engine that
-  takes each module's probabilistic output and produces one unified risk score. That
-  fusion engine is not yet implemented in this repo.
+- **Adaptive Risk Fusion Engine** ([`fusion_engine`](fusion_engine)) combines all 5 modules'
+  probabilistic outputs into one unified risk score. Weights are learned, not hand-picked:
+  a Logistic Regression meta-learner is trained on each module's real held-out
+  score distribution (malicious vs. legitimate mean/std, computed from actual test-set
+  predictions), so the model adapts its trust in each module based on how reliable that
+  module's signal actually is — for example, the weaker payment-screenshot module is
+  automatically weighted lower than the stronger URL/SMS/email modules. A rule-based
+  override (any single module ≥90% confident malicious → automatic high-risk verdict)
+  sits on top as a safety net, with the original fixed-weight average kept as a fallback
+  if the trained model fails to load.
 
 ## Requirements
 
