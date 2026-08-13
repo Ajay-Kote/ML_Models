@@ -15,12 +15,14 @@ from __future__ import annotations
 
 import importlib.util
 import os
+import shutil
 import sys
+import tempfile
 from pathlib import Path
 from typing import Optional
 
-from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
+from fastapi import FastAPI, File, Form, HTTPException, UploadFile
+from fastapi.middleware.cors import CORSMiddleware
 
 from adapters import adapt_url, adapt_sms, adapt_qr, adapt_image, adapt_email
 from fuse import fuse, FusionInputError
@@ -113,12 +115,36 @@ email_predict = _load_module_from_path("email_predict", EMAIL_PREDICT_DIR / "pre
 app = FastAPI(title="Multi-Modal Fraud & Phishing Detection - Fusion API")
 
 
-class FusionRequest(BaseModel):
-    url: Optional[str] = None
-    sms_text: Optional[str] = None
-    qr_image_path: Optional[str] = None
-    payment_image_path: Optional[str] = None
-    email_raw: Optional[str] = None
+# ---------------------------------------------------------------------------
+# FastAPI app
+# ---------------------------------------------------------------------------
+app = FastAPI(title="Multi-Modal Fraud & Phishing Detection - Fusion API")
+
+# CORS: allows a browser-based frontend (React/Streamlit dev server etc.,
+# usually on a different port like localhost:3000 or localhost:8501) to call
+# this API. "*" is fine for local development/demo; for a real deployment,
+# replace with the specific frontend origin(s).
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Uploaded QR/payment-screenshot images are written here temporarily so the
+# existing predict() functions (which expect a file PATH, not raw bytes)
+# can be reused unchanged. Files are deleted again right after prediction.
+UPLOAD_TMP_DIR = Path(tempfile.gettempdir()) / "fusion_engine_uploads"
+UPLOAD_TMP_DIR.mkdir(exist_ok=True)
+
+
+def _save_upload_to_temp(upload: UploadFile) -> Path:
+    suffix = Path(upload.filename).suffix or ".png"
+    fd, tmp_path = tempfile.mkstemp(suffix=suffix, dir=UPLOAD_TMP_DIR)
+    with os.fdopen(fd, "wb") as f:
+        shutil.copyfileobj(upload.file, f)
+    return Path(tmp_path)
 
 
 @app.get("/")
@@ -127,46 +153,63 @@ def root():
 
 
 @app.post("/predict")
-def predict(request: FusionRequest):
+def predict(
+    url: Optional[str] = Form(None),
+    sms_text: Optional[str] = Form(None),
+    email_raw: Optional[str] = Form(None),
+    qr_image: Optional[UploadFile] = File(None),
+    payment_image: Optional[UploadFile] = File(None),
+):
     module_outputs = {}
-
-    if request.url:
-        raw = url_predict.predict_url(request.url)
-        module_outputs["url"] = adapt_url(raw)
-
-    if request.sms_text:
-        raw = _sms_detector.predict(request.sms_text)
-        module_outputs["sms"] = adapt_sms(raw)
-
-    if request.qr_image_path:
-        raw = qr_predict.predict(request.qr_image_path)
-        module_outputs["qr"] = adapt_qr(raw)
-
-    if request.payment_image_path:
-        raw = _image_detector.predict(request.payment_image_path)
-        module_outputs["image"] = adapt_image(raw)
-
-    if request.email_raw:
-        raw = email_predict.predict(request.email_raw)
-        module_outputs["email"] = adapt_email(raw)
-
-    if not module_outputs:
-        raise HTTPException(
-            status_code=422,
-            detail="Provide at least one of: url, sms_text, qr_image_path, "
-                   "payment_image_path, email_raw.",
-        )
+    temp_files_to_clean = []
 
     try:
-        result = fuse_ml(module_outputs)  # ML meta-learner fusion (primary)
-    except FileNotFoundError:
-        # meta_learner.joblib missing/corrupted -> fall back to rule-based
-        # weighted-average fusion so the API never goes down
+        if url:
+            raw = url_predict.predict_url(url)
+            module_outputs["url"] = adapt_url(raw)
+
+        if sms_text:
+            raw = _sms_detector.predict(sms_text)
+            module_outputs["sms"] = adapt_sms(raw)
+
+        if qr_image is not None:
+            qr_path = _save_upload_to_temp(qr_image)
+            temp_files_to_clean.append(qr_path)
+            raw = qr_predict.predict(str(qr_path))
+            module_outputs["qr"] = adapt_qr(raw)
+
+        if payment_image is not None:
+            image_path = _save_upload_to_temp(payment_image)
+            temp_files_to_clean.append(image_path)
+            raw = _image_detector.predict(str(image_path))
+            module_outputs["image"] = adapt_image(raw)
+
+        if email_raw:
+            raw = email_predict.predict(email_raw)
+            module_outputs["email"] = adapt_email(raw)
+
+        if not module_outputs:
+            raise HTTPException(
+                status_code=422,
+                detail="Provide at least one of: url, sms_text, qr_image, "
+                       "payment_image, email_raw.",
+            )
+
         try:
-            result = fuse(module_outputs)
+            result = fuse_ml(module_outputs)  # ML meta-learner fusion (primary)
+        except FileNotFoundError:
+            # meta_learner.joblib missing/corrupted -> fall back to rule-based
+            # weighted-average fusion so the API never goes down
+            try:
+                result = fuse(module_outputs)
+            except FusionInputError as e:
+                raise HTTPException(status_code=422, detail=str(e))
         except FusionInputError as e:
             raise HTTPException(status_code=422, detail=str(e))
-    except FusionInputError as e:
-        raise HTTPException(status_code=422, detail=str(e))
 
-    return result
+        return result
+
+    finally:
+        # Always clean up temp files, even if prediction raised an error.
+        for p in temp_files_to_clean:
+            p.unlink(missing_ok=True)
