@@ -123,3 +123,4 @@ your report.
 - Note down the test metrics (accuracy/F1/ROC-AUC) for your evaluation section
 - Optionally strengthen the dataset with real smishing examples
 - Later: build the API + connect it with the other 4 modules
+Accuracy 98.98% | Precision 95.24% | Recall 97.09% | F1 96.15% | ROC-AUC 99.80% | Test set: 786
