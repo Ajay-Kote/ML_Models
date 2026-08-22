@@ -63,10 +63,17 @@ class DistilBertTextBranch:
         self.model.eval()
 
     def fit(self, texts: List[str], labels: List[int], epochs: int = 3, lr: float = 2e-5, batch_size: int = 8):
+        from tqdm import tqdm
+
         self.model.train()
         optimizer = torch.optim.AdamW(self.model.parameters(), lr=lr)
+        n_batches = (len(texts) + batch_size - 1) // batch_size
+
         for epoch in range(epochs):
-            for i in range(0, len(texts), batch_size):
+            running_loss = 0.0
+            pbar = tqdm(range(0, len(texts), batch_size), total=n_batches,
+                        desc=f"Epoch {epoch + 1}/{epochs}", unit="batch")
+            for step, i in enumerate(pbar, start=1):
                 batch_texts = texts[i:i + batch_size]
                 batch_labels = torch.tensor(labels[i:i + batch_size]).to(self.device)
                 enc = self.tokenizer(batch_texts, padding=True, truncation=True, max_length=256, return_tensors="pt").to(self.device)
@@ -74,6 +81,9 @@ class DistilBertTextBranch:
                 out = self.model(**enc, labels=batch_labels)
                 out.loss.backward()
                 optimizer.step()
+                running_loss += out.loss.item()
+                pbar.set_postfix(loss=f"{running_loss / step:.4f}")
+
         self.model.eval()
         return self
 

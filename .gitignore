@@ -1,32 +1,37 @@
-# Virtual Environments
-venv/
-.venv/
-
-# Python
-__pycache__/
-*.py[cod]
-
-# Model checkpoints
-**/checkpoints/
-*.pt
-*.pth
-*.safetensors
-*.onnx
-*.h5
-*.joblib
-*.pkl
-
-# Artifacts
-**/artifacts/
-
-# Cache
-.pytest_cache/
-.mypy_cache/
-.cache/
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Environment
-.env
+(
+echo # Virtual Environments
+echo venv/
+echo .venv/
+echo.
+echo # Python
+echo __pycache__/
+echo *.py[cod]
+echo.
+echo # Model checkpoints
+echo **/checkpoints/
+echo *.pt
+echo *.pth
+echo *.safetensors
+echo *.onnx
+echo *.h5
+echo *.joblib
+echo *.pkl
+echo.
+echo # Artifacts
+echo **/artifacts/
+echo.
+echo # Cache
+echo .pytest_cache/
+echo .mypy_cache/
+echo .cache/
+echo.
+echo # OS
+echo .DS_Store
+echo Thumbs.db
+echo.
+echo # Environment
+echo .env
+echo.
+echo # Raw datasets
+echo module5_email/data/raw/*.csv
+) > .gitignore
