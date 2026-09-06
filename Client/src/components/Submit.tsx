@@ -1,0 +1,31 @@
+import { useState } from "react";
+import { AlertCircle, FileUp, Loader2, Mail, MessageSquare, Paperclip, QrCode, Receipt, Upload, Link2, Zap, CheckCircle } from "lucide-react";
+import { ApiError, runPrediction, type PredictResponse } from "../api";
+
+export type InputTab = "url" | "sms" | "qr" | "payment" | "email";
+const tabs: { id: InputTab; label: string; icon: typeof Link2 }[] = [
+  { id: "url", label: "URL", icon: Link2 }, { id: "sms", label: "SMS", icon: MessageSquare }, { id: "qr", label: "QR Code", icon: QrCode }, { id: "payment", label: "Payment Screenshot", icon: Receipt }, { id: "email", label: "Email", icon: Mail },
+];
+
+export default function Submit({ onAnalyze }: { onAnalyze: (result: PredictResponse) => void }) {
+  const [activeTab, setActiveTab] = useState<InputTab>("url");
+  const [enabled, setEnabled] = useState<Record<InputTab, boolean>>({ url: true, sms: false, qr: false, payment: false, email: false });
+  const [values, setValues] = useState({ url: "", sms: "", email: "" });
+  const [files, setFiles] = useState<{ qr: File | null; payment: File | null }>({ qr: null, payment: null });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const enabledCount = Object.values(enabled).filter(Boolean).length;
+  const canAnalyze = enabledCount > 0 && (!enabled.url || values.url.trim()) && (!enabled.sms || values.sms.trim()) && (!enabled.email || values.email.trim()) && (!enabled.qr || files.qr) && (!enabled.payment || files.payment);
+
+  async function analyze() {
+    setError(null); setLoading(true);
+    try {
+      const result = await runPrediction({ url: enabled.url ? values.url : undefined, smsText: enabled.sms ? values.sms : undefined, emailRaw: enabled.email ? values.email : undefined, qrImage: enabled.qr ? files.qr : undefined, paymentImage: enabled.payment ? files.payment : undefined });
+      onAnalyze(result);
+    } catch (caught) { setError(caught instanceof ApiError ? caught.message : "Analysis failed. Check the backend console for details."); }
+    finally { setLoading(false); }
+  }
+
+  const setFile = (type: "qr" | "payment", file: File | null) => setFiles(current => ({ ...current, [type]: file }));
+  return <div className="p-6 flex flex-col gap-6 max-w-4xl mx-auto"><div><h2 className="text-xl font-bold" style={{ color: "var(--foreground)" }}>Submit for Analysis</h2><p className="text-sm mt-1" style={{ color: "var(--muted-foreground)" }}>Submit any combination of inputs. Each module runs independently in parallel.</p></div><div className="flex gap-2 flex-wrap">{tabs.map(({ id, label, icon: Icon }) => <button key={id} onClick={() => { setActiveTab(id); setEnabled(current => ({ ...current, [id]: !current[id] })); }} className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium" style={{ background: enabled[id] ? "var(--secondary)" : "var(--card)", color: enabled[id] ? "var(--primary)" : "var(--muted-foreground)", border: "1px solid var(--border)" }}><Icon size={14} />{label}</button>)}</div><div className="rounded-xl p-5" style={{ background: "var(--card)", border: "1px solid var(--border)" }}>{activeTab === "url" && <textarea value={values.url} onChange={event => setValues(current => ({ ...current, url: event.target.value }))} rows={4} placeholder="Paste a URL to analyze" className="w-full px-3 py-2.5 rounded-lg text-sm font-mono outline-none resize-none" style={{ background: "var(--secondary)", border: "1px solid var(--border)", color: "var(--foreground)" }} />}{activeTab === "sms" && <textarea value={values.sms} onChange={event => setValues(current => ({ ...current, sms: event.target.value }))} rows={6} placeholder="Paste SMS text to analyze" className="w-full px-3 py-2.5 rounded-lg text-sm outline-none resize-none" style={{ background: "var(--secondary)", border: "1px solid var(--border)", color: "var(--foreground)" }} />}{activeTab === "email" && <textarea value={values.email} onChange={event => setValues(current => ({ ...current, email: event.target.value }))} rows={8} placeholder="Paste full email headers and content" className="w-full px-3 py-2.5 rounded-lg text-sm font-mono outline-none resize-none" style={{ background: "var(--secondary)", border: "1px solid var(--border)", color: "var(--foreground)" }} />}{(activeTab === "qr" || activeTab === "payment") && <label className="flex flex-col items-center justify-center gap-3 py-10 rounded-lg border-2 border-dashed cursor-pointer" style={{ borderColor: "var(--border)", background: "var(--secondary)" }}><input type="file" accept="image/png,image/jpeg,image/webp" className="hidden" onChange={event => setFile(activeTab, event.target.files?.[0] ?? null)} />{activeTab === "qr" ? <QrCode size={32} /> : <Receipt size={32} />}<span className="text-sm" style={{ color: "var(--foreground)" }}>{files[activeTab]?.name ?? "Choose an image file"}</span><span className="px-4 py-2 rounded-lg text-sm font-medium" style={{ background: "var(--primary)", color: "var(--primary-foreground)" }}><FileUp size={14} className="inline mr-2" />Choose File</span></label>}{activeTab === "email" && <button className="mt-3 flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs" style={{ background: "var(--secondary)", color: "var(--muted-foreground)", border: "1px solid var(--border)" }}><Paperclip size={12} />Upload .eml file</button>}</div><div className="flex items-center gap-4"><button onClick={analyze} disabled={!canAnalyze || loading} className="flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold disabled:opacity-40" style={{ background: "var(--primary)", color: "var(--primary-foreground)" }}>{loading ? <Loader2 size={16} className="animate-spin" /> : <Zap size={16} />}Analyze ({enabledCount})</button><span className="text-xs" style={{ color: "var(--muted-foreground)" }}>{canAnalyze ? "Calls the live Fusion API" : "Enable and complete at least one input"}</span></div>{error && <div className="flex items-start gap-2 px-4 py-3 rounded-lg text-xs" style={{ background: "var(--risk-high-bg)", color: "var(--risk-high-text)", border: "1px solid var(--risk-high)" }}><AlertCircle size={14} />{error}</div>}{loading && <div className="flex items-center gap-2 text-sm" style={{ color: "var(--primary)" }}><Loader2 size={15} className="animate-spin" />Running backend analysis...</div>}</div>;
+}

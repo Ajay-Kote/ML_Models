@@ -1,0 +1,70 @@
+# ============================================================
+# fusion_engine/requirements.txt
+# Union of all 5 modules' own requirements + Fusion API deps.
+# Built from the actual per-module requirements.txt files
+# (URL, SMS, QR, Payment Screenshot, Email) on 27-08-2026.
+# Python 3.13 (Windows) — versions chosen to have cp313 wheels.
+# ============================================================
+
+# --- Fusion API core ---
+fastapi==0.115.6
+uvicorn[standard]==0.32.1
+python-multipart==0.0.20
+pydantic>=2.5
+streamlit==1.40.2
+plotly>=5.18
+
+# --- Shared ML / data ---
+# numpy/scikit-learn/joblib pinned to the Payment Screenshot module's
+# exact tested versions (its requirements.txt has the most specific
+# pins + explicit "confirmed working" comments).
+# pandas: Payment module pins ==3.0.5, but streamlit 1.40.2 hard-caps
+# at pandas<3 (confirmed open GitHub issue, not yet supported). Using
+# 2.2.3 here since Streamlit is required for the frontend. If Payment
+# module's code uses a pandas-3-only API, flag it and we'll patch that
+# one call site instead of fighting Streamlit's cap.
+numpy==2.3.5
+pandas==2.2.3
+scikit-learn==1.9.0
+lightgbm==4.7.0
+joblib==1.5.3
+matplotlib
+
+# --- SMS + Email — DistilBERT ---
+torch==2.6.0
+torchvision>=0.16.0
+transformers==4.46.3
+tokenizers==0.20.3
+
+# --- Payment Screenshot — OCR + vision ---
+# IMPORTANT: paddleocr 3.x and 2.x have DIFFERENT APIs. The code
+# (ocr/paddleocr_pipeline.py) is written for the 3.x API
+# (use_textline_orientation, .predict()). Do not downgrade.
+paddleocr==3.7.0
+paddlepaddle==3.2.2
+paddlex==3.7.2
+# Payment module's own note: do NOT go to paddlepaddle 3.3.x —
+# confirmed upstream MKL-DNN crash bug (Paddle GitHub issue #77340).
+opencv-python==5.0.0.93
+# NOTE: only install opencv-python, never opencv-contrib-python or
+# opencv-python-headless alongside it — they all ship 'cv2' and
+# silently clobber each other depending on install order.
+pillow==11.0.0
+scikit-image
+grad-cam==1.5.5
+
+# --- QR — extras beyond the shared block above ---
+qrcode[pil]
+
+# --- Explainability ---
+shap==0.52.0
+lime==0.2.0.1
+
+# --- URL — host features (currently unwired, but importable) ---
+python-whois==0.9.5
+dnspython==2.7.0
+tldextract==5.1.3
+
+# --- Utilities ---
+requests==2.32.3
+tqdm==4.67.1

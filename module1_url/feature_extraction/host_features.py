@@ -4,7 +4,6 @@ host_features.py
 Host-level features for phishing URL detection: signals that come from
 looking up the DOMAIN itself (not just parsing the URL string).
 
-Why these matter for phishing detection:
   - Domain age: phishing domains are usually registered days/weeks before
     an attack, then abandoned. A domain that's 10+ years old is very
     unlikely to be a phishing site.
@@ -15,31 +14,35 @@ Why these matter for phishing detection:
     (they receive email on their domain); many disposable phishing
     domains don't bother setting one up.
 
-STATUS: This is a standalone, working extractor. It is NOT yet wired
-into url_feature_extractor.py / the trained model (saved_model.pkl),
-because doing that properly requires re-running these lookups across
-the full ~47k-row training set and retraining -- these are network
-calls (WHOIS/DNS/SSL), so that's slow and rate-limit-prone to do in bulk.
+IMPORTANT: Domain age (WHOIS) and MX/NS records are properties of the
+APEX/registrable domain (e.g. "google.com"), not of a specific subdomain
+(e.g. "mail.google.com" itself has no MX/NS records - that's normal DNS
+behavior, not a red flag). Looking these up on the literal subdomain
+under-reports legitimacy for perfectly normal subdomains. SSL certs,
+on the other hand, ARE issued per-hostname, so that check still uses the
+exact hostname from the URL.
 
-To integrate later:
-  1. Run get_host_features(url) over the training CSV (expect this to
-     take a while / need retries -- WHOIS servers rate-limit).
-  2. Merge the resulting columns into the training feature matrix.
-  3. Retrain models/train.py with the expanded feature set.
-  4. In models/predict.py, call get_host_features() alongside
-     URLFeatureExtractor(url).extract() and merge both dicts before
-     building the DataFrame.
-
-Until then, this can be used standalone/for explainability write-ups,
-or as a secondary signal outside the trained model.
+This version:
+  1. Splits lookups: WHOIS/DNS use the apex domain; SSL uses the literal
+     hostname.
+  2. Caches by hostname/apex domain (get_host_features_cached) - so if the
+     same domain (e.g. paypal.com) appears hundreds of times in the
+     training set, it's only looked up ONCE.
+  3. get_host_features_bulk() - runs lookups for many URLs in parallel
+     threads, deduplicating by hostname/apex first. This is the function
+     the training pipeline should call.
 """
 
 from __future__ import annotations
 
 import socket
 import ssl
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
+from functools import lru_cache
 from urllib.parse import urlparse
+
+import tldextract
 
 try:
     import whois  # pip install python-whois
@@ -57,17 +60,29 @@ NETWORK_TIMEOUT_SECONDS = 5
 
 
 def _get_hostname(url: str) -> str:
+    """Literal hostname as it appears in the URL (used for SSL cert check)."""
     parsed = urlparse(url if "://" in url else f"http://{url}")
     host = parsed.netloc.split(":")[0].split("@")[-1]
     return host.lower().lstrip("www.")
 
 
-def get_domain_age_days(hostname: str) -> int | None:
+def _get_apex_domain(hostname: str) -> str:
+    """
+    Registrable/apex domain (used for WHOIS domain age + MX/NS lookups).
+    e.g. "mail.google.com" -> "google.com", "accounts.google.co.uk" -> "google.co.uk"
+    """
+    ext = tldextract.extract(hostname)
+    if not ext.domain or not ext.suffix:
+        return hostname
+    return f"{ext.domain}.{ext.suffix}"
+
+
+def get_domain_age_days(apex_domain: str) -> int | None:
     """Days since domain registration. Returns None if lookup fails/unavailable."""
     if not _HAS_WHOIS:
         return None
     try:
-        w = whois.whois(hostname)
+        w = whois.whois(apex_domain)
         creation = w.creation_date
         if isinstance(creation, list):
             creation = creation[0]
@@ -83,11 +98,9 @@ def get_domain_age_days(hostname: str) -> int | None:
 
 def get_ssl_cert_info(hostname: str, port: int = 443) -> dict:
     """
-    Connects over TLS and inspects the certificate.
-    Returns dict with has_valid_cert, cert_days_remaining, cert_has_org_info.
-    All fields default to "unknown/false" values if the connection fails
-    (e.g. site doesn't support HTTPS, or is unreachable) -- that itself
-    is a mildly suspicious signal for a claimed-legitimate site.
+    Connects over TLS and inspects the certificate for the EXACT hostname
+    from the URL (certs are issued per-hostname, so this should NOT use
+    the apex domain).
     """
     result = {
         "has_valid_cert": 0,
@@ -115,12 +128,8 @@ def get_ssl_cert_info(hostname: str, port: int = 443) -> dict:
     return result
 
 
-def get_dns_features(hostname: str) -> dict:
-    """
-    Checks presence of MX (mail) and NS (nameserver) records.
-    has_mx_record: legitimate businesses almost always have mail set up
-    on their domain; short-lived phishing domains frequently don't.
-    """
+def get_dns_features(apex_domain: str) -> dict:
+    """Checks presence of MX (mail) and NS (nameserver) records on the APEX domain."""
     result = {"has_mx_record": 0, "ns_record_count": 0}
     if not _HAS_DNS:
         return result
@@ -128,20 +137,16 @@ def get_dns_features(hostname: str) -> dict:
     resolver = dns.resolver.Resolver()
     resolver.timeout = NETWORK_TIMEOUT_SECONDS
     resolver.lifetime = NETWORK_TIMEOUT_SECONDS
-    # Explicit public DNS server -- on some Windows setups the OS default
-    # resolver doesn't respond properly to dnspython's raw UDP queries,
-    # silently causing every lookup to fail. Google's public resolver
-    # sidesteps that.
     resolver.nameservers = ["8.8.8.8", "1.1.1.1"]
 
     try:
-        mx_answers = resolver.resolve(hostname, "MX")
+        mx_answers = resolver.resolve(apex_domain, "MX")
         result["has_mx_record"] = int(len(mx_answers) > 0)
     except Exception:
         pass
 
     try:
-        ns_answers = resolver.resolve(hostname, "NS")
+        ns_answers = resolver.resolve(apex_domain, "NS")
         result["ns_record_count"] = len(ns_answers)
     except Exception:
         pass
@@ -151,19 +156,19 @@ def get_dns_features(hostname: str) -> dict:
 
 def get_host_features(url: str) -> dict:
     """
-    Main entry point. Runs all host-level lookups for a URL and returns
-    one flat dict, ready to merge into URLFeatureExtractor's output.
-
-    NOTE: this does real network I/O (WHOIS + DNS + a live TLS handshake),
-    so expect ~1-3 seconds per call, and expect some fields to come back
-    as "unknown" (-1 / 0) for unreachable or newly-registered domains --
-    that's expected behavior, not a bug.
+    Main entry point for a SINGLE url. Runs all host-level lookups and
+    returns one flat dict, ready to merge into URLFeatureExtractor's output.
+    Expect ~1-3 seconds per call (real network I/O).
     """
     hostname = _get_hostname(url)
+    apex = _get_apex_domain(hostname)
+    return _lookup_all(hostname, apex)
 
-    domain_age_days = get_domain_age_days(hostname)
-    ssl_info = get_ssl_cert_info(hostname)
-    dns_info = get_dns_features(hostname)
+
+def _lookup_all(hostname: str, apex: str) -> dict:
+    domain_age_days = get_domain_age_days(apex)
+    ssl_info = get_ssl_cert_info(hostname)  # exact hostname, not apex
+    dns_info = get_dns_features(apex)
 
     return {
         "Domain_Age_Days": domain_age_days if domain_age_days is not None else -1,
@@ -171,6 +176,93 @@ def get_host_features(url: str) -> dict:
         "Domain_Age_Under_30_Days": int(domain_age_days is not None and domain_age_days < 30),
         **ssl_info,
         **dns_info,
+    }
+
+
+@lru_cache(maxsize=None)
+def _cached_lookup(hostname: str, apex: str) -> tuple:
+    """Cached by (hostname, apex) pair. Returns a hashable tuple for lru_cache."""
+    feats = _lookup_all(hostname, apex)
+    return tuple(sorted(feats.items()))
+
+
+def get_host_features_cached(url: str) -> dict:
+    """
+    Same as get_host_features(), but memoized within this process. Use this
+    instead of get_host_features() whenever the same domain is likely to
+    repeat many times (e.g. augmented training data with hundreds of
+    paypal.com / google.com variants).
+    """
+    hostname = _get_hostname(url)
+    apex = _get_apex_domain(hostname)
+    return dict(_cached_lookup(hostname, apex))
+
+
+def get_host_features_bulk(urls: list[str], max_workers: int = 40, progress: bool = True) -> dict:
+    """
+    Looks up host features for a list of URLs, in parallel, deduplicating
+    SSL checks by exact hostname and WHOIS/DNS checks by apex domain
+    (so e.g. mail.google.com and accounts.google.com share one WHOIS/DNS
+    lookup for "google.com", but each still gets its own SSL check).
+
+    Returns: {url: features_dict, ...} covering every url in the input.
+    """
+    url_to_host = {url: _get_hostname(url) for url in urls}
+    url_to_apex = {url: _get_apex_domain(url_to_host[url]) for url in urls}
+
+    unique_hosts = sorted(set(url_to_host.values()))
+    unique_apexes = sorted(set(url_to_apex.values()))
+
+    print(f"[host_features] {len(urls)} URLs -> {len(unique_hosts)} unique hostnames "
+          f"(SSL), {len(unique_apexes)} unique apex domains (WHOIS/DNS)")
+
+    # ---- SSL lookups, keyed by exact hostname ----
+    ssl_results: dict[str, dict] = {}
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        futures = {executor.submit(get_ssl_cert_info, h): h for h in unique_hosts}
+        done = 0
+        for future in as_completed(futures):
+            h = futures[future]
+            try:
+                ssl_results[h] = future.result()
+            except Exception:
+                ssl_results[h] = {"has_valid_cert": 0, "cert_days_remaining": -1, "cert_has_org_info": 0}
+            done += 1
+            if progress and done % 200 == 0:
+                print(f"[host_features] SSL: {done}/{len(unique_hosts)} done")
+
+    # ---- WHOIS + DNS lookups, keyed by apex domain ----
+    apex_results: dict[str, dict] = {}
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        def _apex_lookup(apex):
+            age = get_domain_age_days(apex)
+            dns_info = get_dns_features(apex)
+            return {
+                "Domain_Age_Days": age if age is not None else -1,
+                "Domain_Age_Unknown": int(age is None),
+                "Domain_Age_Under_30_Days": int(age is not None and age < 30),
+                **dns_info,
+            }
+
+        futures = {executor.submit(_apex_lookup, a): a for a in unique_apexes}
+        done = 0
+        for future in as_completed(futures):
+            a = futures[future]
+            try:
+                apex_results[a] = future.result()
+            except Exception:
+                apex_results[a] = {
+                    "Domain_Age_Days": -1, "Domain_Age_Unknown": 1,
+                    "Domain_Age_Under_30_Days": 0, "has_mx_record": 0, "ns_record_count": 0,
+                }
+            done += 1
+            if progress and done % 200 == 0:
+                print(f"[host_features] WHOIS/DNS: {done}/{len(unique_apexes)} done")
+
+    # ---- Combine per url ----
+    return {
+        url: {**apex_results[url_to_apex[url]], **ssl_results[url_to_host[url]]}
+        for url in urls
     }
 
 

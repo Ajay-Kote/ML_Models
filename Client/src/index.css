@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 4px);
+}
+
+:root {
+  --background: #F5F6F4;
+  --foreground: #24412F;
+  --card: #FFFFFF;
+  --card-foreground: #24412F;
+  --primary: #1F8955;
+  --primary-foreground: #FFFFFF;
+  --secondary: #EAF0EC;
+  --secondary-foreground: #1F8955;
+  --muted: #E5E7E2;
+  --muted-foreground: #565D57;
+  --accent: #2DBF7C;
+  --accent-foreground: #1F8955;
+  --border: #DCDFDA;
+  --ring: #2DBF7C;
+  --radius: 10px;
+
+  --risk-safe: #1F8955;
+  --risk-safe-bg: #E1F6EA;
+  --risk-safe-text: #0F5C37;
+  --risk-suspicious: #B7791F;
+  --risk-suspicious-bg: #FBF0DA;
+  --risk-suspicious-text: #7A5111;
+  --risk-high: #B24A2F;
+  --risk-high-bg: #FBE7E0;
+  --risk-high-text: #7A2F1B;
+
+  --sidebar-bg: #F0F6F1;
+  --sidebar-fg: #647067;
+  --sidebar-active: #2DBF7C;
+  --sidebar-active-bg: #DFF2E6;
+
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  margin: 0;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Hide scrollbars until hover */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 2px;
+}
+
+.scrollbar-hide {
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

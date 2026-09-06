@@ -18,6 +18,8 @@ import os
 import shutil
 import sys
 import tempfile
+from time import perf_counter
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 
@@ -26,7 +28,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from adapters import adapt_url, adapt_sms, adapt_qr, adapt_image, adapt_email
 from fuse import fuse, FusionInputError
-from fuse_ml import fuse_ml
+from fuse_ml import fuse_ml, model_health
 
 # ---------------------------------------------------------------------------
 # MODULE_PATHS -- confirmed against actual folder layout
@@ -137,6 +139,8 @@ app.add_middleware(
 # can be reused unchanged. Files are deleted again right after prediction.
 UPLOAD_TMP_DIR = Path(tempfile.gettempdir()) / "fusion_engine_uploads"
 UPLOAD_TMP_DIR.mkdir(exist_ok=True)
+_prediction_count = 0
+_prediction_latency_ms = 0.0
 
 
 def _save_upload_to_temp(upload: UploadFile) -> Path:
@@ -152,6 +156,36 @@ def root():
     return {"status": "Fusion API running"}
 
 
+@app.get("/model-health")
+def get_model_health():
+    """Expose runtime health and existing model metadata without retraining."""
+    global _prediction_count, _prediction_latency_ms
+    try:
+        health = model_health()
+        model_status = "nominal"
+    except (FileNotFoundError, KeyError, AttributeError) as error:
+        health = {"model_loaded": False, "model_file": "meta_learner.joblib", "modules": []}
+        model_status = "degraded"
+        health["error"] = str(error)
+
+    average_latency_ms = (
+        round(_prediction_latency_ms / _prediction_count, 2)
+        if _prediction_count else None
+    )
+    return {
+        "status": model_status,
+        "updated_at": datetime.now(timezone.utc).isoformat(),
+        "prediction_count": _prediction_count,
+        "average_latency_ms": average_latency_ms,
+        "evaluation_metrics": {
+            "accuracy": None,
+            "f1": None,
+            "roc_auc": None,
+        },
+        **health,
+    }
+
+
 @app.post("/predict")
 def predict(
     url: Optional[str] = Form(None),
@@ -160,6 +194,8 @@ def predict(
     qr_image: Optional[UploadFile] = File(None),
     payment_image: Optional[UploadFile] = File(None),
 ):
+    global _prediction_count, _prediction_latency_ms
+    started_at = perf_counter()
     module_outputs = {}
     temp_files_to_clean = []
 
@@ -207,6 +243,8 @@ def predict(
         except FusionInputError as e:
             raise HTTPException(status_code=422, detail=str(e))
 
+        _prediction_count += 1
+        _prediction_latency_ms += (perf_counter() - started_at) * 1000
         return result
 
     finally:

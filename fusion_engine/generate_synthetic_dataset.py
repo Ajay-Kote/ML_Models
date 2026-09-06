@@ -44,17 +44,15 @@ MODULES = ["url", "sms", "qr", "image", "email"]
 #     underlying case IS malicious/fraudulent
 #   - "legitimate" params: (mean, std) of risk_probability when it's NOT
 #
-# TODO(Ajay): swap these numbers for the ACTUAL mean/std of each module's
-# risk_probability output on its own test set, split by true label.
-# You already have all 5 test-set prediction files -- just compute
-# df[df.true_label==1].risk_probability.agg(['mean','std']) etc.
+# url: recomputed 27-08-2026 after url module retrain (network features +
+# apex-domain MX/NS/WHOIS fix) via compute_score_distribution.py.
 # ---------------------------------------------------------------------------
 SCORE_DIST = {
-    "url":   {"malicious": (0.9593, 0.1640), "legitimate": (0.0271, 0.0522)},
+    "url":   {"malicious": (0.9708, 0.1335), "legitimate": (0.0172, 0.0746)},
     "sms":   {"malicious": (0.9665, 0.1593), "legitimate": (0.0097, 0.0780)},
     "qr":    {"malicious": (0.8122, 0.2303), "legitimate": (0.2107, 0.2853)},
     "image": {"malicious": (0.8610, 0.1318), "legitimate": (0.6914, 0.1866)},
-    "email": {"malicious": (0.9696, 0.0324), "legitimate": (0.0013, 0.0001)},  # std floored to avoid 0-variance sampling
+    "email": {"malicious": (0.9871, 0.0918), "legitimate": (0.0512, 0.1639)},
 }
 
 # Probability that each module is even present in a given synthetic incident

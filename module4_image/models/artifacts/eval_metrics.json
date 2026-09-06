@@ -1,0 +1,1 @@
+{"accuracy":0.7352941176,"precision":0.9189189189,"recall":0.7488986784,"f1":0.8252427184,"false_positive_rate_on_genuine":0.3333333333,"roc_auc":0.766617719,"decision_threshold":0.82}

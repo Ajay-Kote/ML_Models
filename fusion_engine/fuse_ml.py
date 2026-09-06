@@ -41,6 +41,24 @@ def _load_model():
     return _model
 
 
+def model_health() -> dict:
+    """Return metadata from the existing trained fusion model without retraining it."""
+    model = _load_model()
+    clf = model.named_steps["clf"]
+    coefficients = dict(zip(
+        [f"{m}_risk" for m in MODULES] + [f"{m}_present" for m in MODULES],
+        clf.coef_[0],
+    ))
+    return {
+        "model_loaded": True,
+        "model_file": MODEL_PATH.name,
+        "modules": [
+            {"id": module, "learned_weight": round(float(coefficients[f"{module}_risk"]), 4)}
+            for module in MODULES
+        ],
+    }
+
+
 def _verdict_from_score(score: float) -> str:
     if score < SAFE_MAX:
         return "safe"

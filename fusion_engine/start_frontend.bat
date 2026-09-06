@@ -10,7 +10,7 @@ echo Starting Streamlit frontend...
 echo.
 
 REM --- EDIT THIS LINE if your venv is somewhere else ---
-call ..\module4_image\venv\Scripts\activate.bat
+call venv\Scripts\activate.bat
 
 streamlit run app.py
 

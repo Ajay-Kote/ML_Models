@@ -1,79 +1,62 @@
 """
 compute_score_distribution.py
+Computes (mean, std) of risk_probability for malicious vs legitimate URLs,
+for use in the fusion engine's SCORE_DIST.
 
-Run this ONCE PER MODULE (with the module-specific block un-commented /
-adapted) to get the (mean, std) numbers that go into SCORE_DIST inside
-generate_synthetic_dataset.py.
+FAST VERSION: uses the already-extracted data/processed/features.csv
+(built by build_features.py, which already did all the network lookups
+once) instead of re-running live DNS/SSL/WHOIS lookups per row. This
+takes seconds instead of hours.
 
-Pattern (same for every module):
-  1. Load the SAME raw dataset + SAME train_test_split(random_state=42)
-     that was used during training, so you get the exact held-out test
-     rows the model has never seen.
-  2. Run predict() on every row of that test split.
-  3. Split the resulting risk_probability values into two groups using
-     the TRUE label (malicious vs legitimate).
-  4. Print mean + std for each group -> paste into SCORE_DIST.
-
-Below is a filled-in example for module1_url (based on its existing
-test_model.py). Copy this file into each module's own folder and swap
-the marked lines for that module's data path / predict function / label
-column.
+Uses the EXACT same train_test_split (test_size=0.20, random_state=42,
+stratify=Label) as models/train.py, so this evaluates on the same
+held-out test rows the model was tested on - not on training rows.
 """
 
-import numpy as np
+import joblib
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-# --- MODULE-SPECIFIC: change these 3 lines per module -----------------
-from models.predict import predict_url as predict_fn      # <-- swap import
-DATA_PATH = "data/raw/PhiUSIIL_Phishing_URL_Dataset.csv"   # <-- swap path
-LABEL_COL = "label"                                         # <-- swap col name
-# ------------------------------------------------------------------------
+FEATURES_PATH = "data/processed/features.csv"
+MODEL_PATH = "models/saved_model.pkl"
 
 
 def main():
-    raw = pd.read_csv(DATA_PATH)
-    label_col = LABEL_COL if LABEL_COL in raw.columns else LABEL_COL.capitalize()
+    df = pd.read_csv(FEATURES_PATH)
 
-    # MUST match the exact split used at training time (same test_size +
-    # random_state) or you'll leak train rows into this "test" evaluation.
-    _, test_df = train_test_split(
-        raw, test_size=0.20, random_state=42, stratify=raw[label_col]
+    label_col = "Label" if "Label" in df.columns else "label"
+
+    X = df.drop(columns=[label_col])
+    y = df[label_col]
+
+    # Same split as train.py - this reproduces the same held-out test set.
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.20, random_state=42, stratify=y
     )
 
-    # Quick sanity-check run first with a small sample. Set to None to
-    # use the FULL held-out test split (slower, but gives the most
-    # accurate mean/std numbers).
-    SAMPLE_SIZE = None
-    if SAMPLE_SIZE is not None and len(test_df) > SAMPLE_SIZE:
-        test_df = test_df.sample(n=SAMPLE_SIZE, random_state=42)
+    model = joblib.load(MODEL_PATH)
 
-    risk_scores = []
-    true_labels = []
+    try:
+        train_columns = model.feature_name_
+        X_test = X_test.reindex(columns=train_columns, fill_value=0)
+    except AttributeError:
+        pass
 
-    total = len(test_df)
-    for i, (_, row) in enumerate(test_df.iterrows(), start=1):
-        if i == 1 or i % 200 == 0 or i == total:
-            print(f"  ...{i}/{total} rows processed", flush=True)
+    # Phishing probability = P(class 0), since Label: 0 = phishing, 1 = legitimate
+    proba = model.predict_proba(X_test)
+    class_index_0 = list(model.classes_).index(0)
+    risk_scores = proba[:, class_index_0]
 
-        # --- MODULE-SPECIFIC: how you call predict + extract risk_probability ---
-        result = predict_fn(row["URL"])
-        risk = result["Phishing Probability"] / 100.0   # normalize to 0-1
-        # -------------------------------------------------------------------------
+    result_df = pd.DataFrame({
+        "risk_probability": risk_scores,
+        "true_label": y_test.values,
+    })
 
-        risk_scores.append(risk)
-        true_labels.append(int(row[label_col]))
+    malicious_mask = result_df["true_label"] == 0
+    legit_mask = result_df["true_label"] == 1
 
-    df = pd.DataFrame({"risk_probability": risk_scores, "true_label": true_labels})
-
-    # NOTE: adjust which numeric value means "malicious" for this module.
-    # (module1_url's raw label: 1 = legitimate, 0 = phishing -- so malicious == 0 here.
-    #  Check each module's own convention before copying this blindly!)
-    malicious_mask = df["true_label"] == 0
-    legit_mask = df["true_label"] == 1
-
-    mal = df.loc[malicious_mask, "risk_probability"]
-    leg = df.loc[legit_mask, "risk_probability"]
+    mal = result_df.loc[malicious_mask, "risk_probability"]
+    leg = result_df.loc[legit_mask, "risk_probability"]
 
     print(f"n_malicious={len(mal)}  n_legitimate={len(leg)}")
     print(f'"malicious":   (mean={mal.mean():.4f}, std={mal.std():.4f})')

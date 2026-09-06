@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1120" viewBox="0 0 1800 1120" role="img" aria-labelledby="title desc">
+  <title id="title">Adaptive Risk Fusion multi-modal fraud detection system architecture</title>
+  <desc id="desc">Architecture showing the React dashboard sending URL, SMS, QR image, payment screenshot, and raw email inputs to a FastAPI fusion orchestrator. The orchestrator invokes five independent detectors, normalizes their outputs, and combines them with an ML meta-learner and safety override before returning an explainable verdict.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F7FAF8"/>
+      <stop offset="1" stop-color="#EAF2ED"/>
+    </linearGradient>
+    <linearGradient id="fusion" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0E6B4A"/>
+      <stop offset="1" stop-color="#168A62"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#17352A" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5C7468"/>
+    </marker>
+    <marker id="arrowWhite" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#FFFFFF"/>
+    </marker>
+    <style>
+      .title { font: 700 30px Inter, Segoe UI, sans-serif; fill: #163126; }
+      .subtitle { font: 400 15px Inter, Segoe UI, sans-serif; fill: #5C7468; }
+      .lane { font: 700 12px Inter, Segoe UI, sans-serif; letter-spacing: 2px; fill: #5C7468; }
+      .box-title { font: 700 16px Inter, Segoe UI, sans-serif; fill: #17352A; }
+      .box-title-white { font: 700 16px Inter, Segoe UI, sans-serif; fill: #FFFFFF; }
+      .body { font: 400 12px Inter, Segoe UI, sans-serif; fill: #5C7468; }
+      .body-white { font: 400 12px Inter, Segoe UI, sans-serif; fill: #D9F2E5; }
+      .small { font: 500 11px Inter, Segoe UI, sans-serif; fill: #6A8176; }
+      .mono { font: 600 11px Consolas, monospace; fill: #315A49; }
+      .pill { font: 700 10px Inter, Segoe UI, sans-serif; fill: #FFFFFF; letter-spacing: 0.6px; }
+      .flow { fill: none; stroke: #5C7468; stroke-width: 2; marker-end: url(#arrow); }
+      .flow-dash { fill: none; stroke: #8BA397; stroke-width: 1.7; stroke-dasharray: 6 5; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect width="1800" height="1120" fill="url(#bg)"/>
+  <path d="M0 128 H1800" stroke="#D5E3DB" stroke-width="1"/>
+  <text x="60" y="62" class="title">Adaptive Risk Fusion</text>
+  <text x="60" y="91" class="subtitle">Explainable multi-modal phishing and digital fraud detection | implemented system architecture</text>
+  <rect x="1510" y="48" width="230" height="38" rx="19" fill="#DDF2E6"/>
+  <circle cx="1533" cy="67" r="6" fill="#1F8955"/>
+  <text x="1548" y="72" class="mono">LOCAL / FIVE MODULES</text>
+
+  <!-- Lane labels -->
+  <text x="60" y="163" class="lane">01  USER INPUTS</text>
+  <text x="350" y="163" class="lane">02  DASHBOARD</text>
+  <text x="610" y="163" class="lane">03  ORCHESTRATION</text>
+  <text x="1015" y="163" class="lane">04  DETECTION MODULES</text>
+  <text x="1512" y="163" class="lane">05  DECISION + RESPONSE</text>
+
+  <!-- Inputs -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="205" width="220" height="68" rx="12" fill="#FFFFFF" stroke="#D5E3DB"/>
+    <rect x="50" y="291" width="220" height="68" rx="12" fill="#FFFFFF" stroke="#D5E3DB"/>
+    <rect x="50" y="377" width="220" height="68" rx="12" fill="#FFFFFF" stroke="#D5E3DB"/>
+    <rect x="50" y="463" width="220" height="68" rx="12" fill="#FFFFFF" stroke="#D5E3DB"/>
+    <rect x="50" y="549" width="220" height="68" rx="12" fill="#FFFFFF" stroke="#D5E3DB"/>
+  </g>
+  <g font-family="Inter, Segoe UI, sans-serif">
+    <circle cx="78" cy="239" r="15" fill="#E5F0FF"/><text x="78" y="244" text-anchor="middle" font-size="17" fill="#3B82F6">↗</text>
+    <text x="105" y="235" class="box-title">URL</text><text x="105" y="254" class="body">website address</text>
+    <circle cx="78" cy="325" r="15" fill="#F0E9FF"/><text x="78" y="330" text-anchor="middle" font-size="16" fill="#7C55C7">≡</text>
+    <text x="105" y="321" class="box-title">SMS text</text><text x="105" y="340" class="body">message content</text>
+    <circle cx="78" cy="411" r="15" fill="#E2F7F7"/><text x="78" y="416" text-anchor="middle" font-size="16" fill="#0998A3">▦</text>
+    <text x="105" y="407" class="box-title">QR image</text><text x="105" y="426" class="body">uploaded code image</text>
+    <circle cx="78" cy="497" r="15" fill="#FFF1D8"/><text x="78" y="502" text-anchor="middle" font-size="16" fill="#C27A12">▣</text>
+    <text x="105" y="493" class="box-title">Payment screenshot</text><text x="105" y="512" class="body">uploaded image</text>
+    <circle cx="78" cy="583" r="15" fill="#FBE5F0"/><text x="78" y="588" text-anchor="middle" font-size="16" fill="#C14983">@</text>
+    <text x="105" y="579" class="box-title">Raw email</text><text x="105" y="598" class="body">RFC822 message</text>
+  </g>
+
+  <!-- Dashboard -->
+  <g filter="url(#shadow)">
+    <rect x="335" y="302" width="220" height="202" rx="14" fill="#17352A"/>
+    <rect x="351" y="321" width="188" height="30" rx="7" fill="#2B5543"/>
+    <circle cx="367" cy="336" r="5" fill="#55D18E"/><text x="380" y="341" class="body-white">Adaptive Risk Fusion</text>
+    <rect x="351" y="367" width="86" height="86" rx="8" fill="#234A39"/>
+    <path d="M366 430 A27 27 0 0 1 422 430" fill="none" stroke="#4ED18D" stroke-width="8" stroke-linecap="round"/>
+    <text x="394" y="414" text-anchor="middle" font-size="24" font-weight="700" fill="#FFFFFF">91</text>
+    <text x="394" y="442" text-anchor="middle" class="small" fill="#B8D6C6">RISK</text>
+    <rect x="451" y="367" width="88" height="14" rx="4" fill="#2B5543"/><rect x="451" y="389" width="68" height="14" rx="4" fill="#2B5543"/><rect x="451" y="411" width="78" height="14" rx="4" fill="#2B5543"/>
+    <text x="351" y="480" class="body-white">inputs • verdict • explanations</text>
+  </g>
+  <text x="445" y="532" text-anchor="middle" class="small">React + Vite dashboard</text>
+  <text x="445" y="549" text-anchor="middle" class="mono">POST /predict  ·  FormData</text>
+
+  <!-- Orchestrator -->
+  <g filter="url(#shadow)">
+    <rect x="610" y="218" width="345" height="342" rx="16" fill="#FFFFFF" stroke="#9FC8B2" stroke-width="2"/>
+    <rect x="610" y="218" width="345" height="52" rx="16" fill="#DDF2E6"/>
+    <rect x="610" y="254" width="345" height="16" fill="#DDF2E6"/>
+    <text x="635" y="250" class="box-title">FastAPI fusion orchestrator</text>
+    <text x="635" y="291" class="mono">fusion_engine/api.py</text>
+    <line x1="635" y1="307" x2="930" y2="307" stroke="#D5E3DB"/>
+    <circle cx="649" cy="333" r="5" fill="#1F8955"/><text x="664" y="338" class="body">accept optional inputs</text>
+    <circle cx="649" cy="365" r="5" fill="#1F8955"/><text x="664" y="370" class="body">save uploaded images temporarily</text>
+    <circle cx="649" cy="397" r="5" fill="#1F8955"/><text x="664" y="402" class="body">invoke only relevant predictors</text>
+    <circle cx="649" cy="429" r="5" fill="#1F8955"/><text x="664" y="434" class="body">normalize raw module schemas</text>
+    <circle cx="649" cy="461" r="5" fill="#1F8955"/><text x="664" y="466" class="body">clean temporary files in finally</text>
+    <rect x="635" y="492" width="295" height="43" rx="8" fill="#F3F8F5"/>
+    <text x="650" y="510" class="small">Common contract:</text><text x="650" y="526" class="mono">risk_probability · label · confidence · explanation</text>
+  </g>
+
+  <!-- Modules -->
+  <g filter="url(#shadow)">
+    <rect x="1015" y="192" width="445" height="92" rx="12" fill="#FFFFFF" stroke="#B9D1F5"/>
+    <rect x="1015" y="192" width="8" height="92" rx="4" fill="#3B82F6"/><text x="1040" y="220" class="box-title">1  URL phishing detector</text><text x="1040" y="242" class="body">lexical + host/network features</text><text x="1040" y="263" class="mono">LightGBM  ·  SHAP explanation</text>
+    <rect x="1015" y="303" width="445" height="92" rx="12" fill="#FFFFFF" stroke="#D7C8F5"/>
+    <rect x="1015" y="303" width="8" height="92" rx="4" fill="#7C55C7"/><text x="1040" y="331" class="box-title">2  SMS smishing detector</text><text x="1040" y="353" class="body">message tokenization + classification</text><text x="1040" y="374" class="mono">DistilBERT  ·  embedding output</text>
+    <rect x="1015" y="414" width="445" height="92" rx="12" fill="#FFFFFF" stroke="#A8E1E3"/>
+    <rect x="1015" y="414" width="8" height="92" rx="4" fill="#0998A3"/><text x="1040" y="442" class="box-title">3  QR quishing detector</text><text x="1040" y="464" class="body">pixel + metadata + texture features</text><text x="1040" y="485" class="mono">LightGBM  ·  QR decode  ·  SHAP</text>
+    <rect x="1015" y="525" width="445" height="92" rx="12" fill="#FFFFFF" stroke="#F2D39B"/>
+    <rect x="1015" y="525" width="8" height="92" rx="4" fill="#C27A12"/><text x="1040" y="553" class="box-title">4  Payment image fraud detector</text><text x="1040" y="575" class="body">OCR + visual embedding + feature fusion</text><text x="1040" y="596" class="mono">EfficientNet-B0 · LightGBM · SHAP · Grad-CAM</text>
+    <rect x="1015" y="636" width="445" height="92" rx="12" fill="#FFFFFF" stroke="#EBC1D7"/>
+    <rect x="1015" y="636" width="8" height="92" rx="4" fill="#C14983"/><text x="1040" y="664" class="box-title">5  Email phishing detector</text><text x="1040" y="686" class="body">body text branch + header metadata branch</text><text x="1040" y="707" class="mono">DistilBERT + LightGBM → MLP fusion · LIME/SHAP</text>
+  </g>
+
+  <!-- Decision -->
+  <g filter="url(#shadow)">
+    <rect x="1512" y="234" width="238" height="270" rx="16" fill="url(#fusion)"/>
+    <text x="1538" y="269" class="box-title-white">Adaptive decision layer</text>
+    <text x="1538" y="293" class="body-white">fusion_engine/fuse_ml.py</text>
+    <line x1="1538" y1="311" x2="1724" y2="311" stroke="#70C89C"/>
+    <text x="1538" y="337" class="body-white">1  feature vector</text><text x="1538" y="355" class="small" fill="#B8E5CA">risk scores + presence flags</text>
+    <text x="1538" y="383" class="body-white">2  ML meta-learner</text><text x="1538" y="401" class="small" fill="#B8E5CA">Logistic Regression probabilities</text>
+    <text x="1538" y="429" class="body-white">3  safety override</text><text x="1538" y="447" class="small" fill="#B8E5CA">any malicious score ≥ 90%</text>
+    <rect x="1538" y="463" width="186" height="24" rx="6" fill="#0C5B3E"/><text x="1631" y="480" text-anchor="middle" class="pill">SAFE · SUSPICIOUS · HIGH RISK</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="1512" y="548" width="238" height="180" rx="14" fill="#FFFFFF" stroke="#9FC8B2"/>
+    <text x="1538" y="580" class="box-title">Explainable response</text>
+    <text x="1538" y="609" class="body">combined risk probability</text>
+    <text x="1538" y="631" class="body">contributing modules + weights</text>
+    <text x="1538" y="653" class="body">verdict and override status</text>
+    <text x="1538" y="675" class="body">human-readable explanation</text>
+    <text x="1538" y="704" class="mono">JSON → dashboard</text>
+  </g>
+
+  <!-- Flows -->
+  <path d="M270 239 H310 V350 H335" class="flow"/><path d="M270 325 H310 V375 H335" class="flow"/><path d="M270 411 H310 V400 H335" class="flow"/><path d="M270 497 H310 V425 H335" class="flow"/><path d="M270 583 H310 V450 H335" class="flow"/>
+  <path d="M555 403 H610" class="flow"/><text x="566" y="391" class="small">HTTP</text>
+  <path d="M955 350 H985 V238 H1015" class="flow"/><path d="M955 380 H985 V349 H1015" class="flow"/><path d="M955 410 H985 V460 H1015" class="flow"/><path d="M955 440 H985 V571 H1015" class="flow"/><path d="M955 470 H985 V682 H1015" class="flow"/>
+  <path d="M1460 238 H1512" class="flow"/><path d="M1460 349 H1512" class="flow"/><path d="M1460 460 H1512" class="flow"/><path d="M1460 571 H1512" class="flow"/><path d="M1460 682 H1512" class="flow"/>
+  <path d="M1631 504 V548" class="flow"/><path d="M1512 638 H1468 V430 H555" class="flow-dash"/><text x="1210" y="419" class="small">JSON result</text>
+
+  <!-- Explainability rail -->
+  <rect x="610" y="785" width="1140" height="90" rx="14" fill="#F4F8F5" stroke="#CFE0D5"/>
+  <text x="635" y="817" class="box-title">Explainability layer</text>
+  <text x="635" y="842" class="body">SHAP: URL, QR, payment image, email metadata/fusion</text>
+  <text x="1090" y="842" class="body">LIME: SMS and email text</text>
+  <text x="1370" y="842" class="body">Grad-CAM: payment tampering heatmap</text>
+  <path d="M1238 728 V785" class="flow-dash"/><path d="M1290 728 V785" class="flow-dash"/><path d="M1342 728 V785" class="flow-dash"/>
+
+  <!-- Runtime notes -->
+  <rect x="50" y="930" width="1700" height="116" rx="14" fill="#17352A"/>
+  <text x="78" y="963" class="box-title-white">Runtime and ownership</text>
+  <text x="78" y="991" class="body-white">Frontend: Adaptive_Risk_Fusion_Dashboard_Connected  ·  Vite dev server</text>
+  <text x="78" y="1017" class="body-white">Backend: fusion_engine/api.py  ·  FastAPI + CORS  ·  temporary image files are deleted after inference</text>
+  <text x="1070" y="991" class="body-white">Training artifacts remain module-local</text>
+  <text x="1070" y="1017" class="body-white">ML fusion falls back to weighted rules if meta_learner.joblib is unavailable</text>
+
+  <text x="900" y="1090" text-anchor="middle" class="small">Architecture reflects the current repository implementation, including optional inputs and partial-module execution.</text>
+</svg>

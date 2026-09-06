@@ -1,37 +1,52 @@
-(
-echo # Virtual Environments
-echo venv/
-echo .venv/
-echo.
-echo # Python
-echo __pycache__/
-echo *.py[cod]
-echo.
-echo # Model checkpoints
-echo **/checkpoints/
-echo *.pt
-echo *.pth
-echo *.safetensors
-echo *.onnx
-echo *.h5
-echo *.joblib
-echo *.pkl
-echo.
-echo # Artifacts
-echo **/artifacts/
-echo.
-echo # Cache
-echo .pytest_cache/
-echo .mypy_cache/
-echo .cache/
-echo.
-echo # OS
-echo .DS_Store
-echo Thumbs.db
-echo.
-echo # Environment
-echo .env
-echo.
-echo # Raw datasets
-echo module5_email/data/raw/*.csv
-) > .gitignore
+# Virtual Environments
+**/venv/
+**/.venv/
+**/node_modules/
+venv/
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Model checkpoints and generated model binaries
+**/checkpoints/
+*.pt
+*.pth
+*.safetensors
+*.onnx
+*.h5
+*.joblib
+*.pkl
+
+# Generated artifacts
+**/artifacts/
+
+# Final model files required by the hosted APIs
+!fusion_engine/meta_learner.joblib
+!module1_url/models/saved_model.pkl
+!module2_sms/model/saved_model/
+!module2_sms/model/saved_model/model.safetensors
+!module3_qr/models/saved_model.pkl
+!module4_image/models/artifacts/
+!module4_image/models/artifacts/**
+!module5_email/saved_models/
+!module5_email/saved_models/**
+!module5_email/text_branch/saved_model/
+!module5_email/text_branch/saved_model/distilbert/
+!module5_email/text_branch/saved_model/distilbert/model.safetensors
+
+# Cache
+.pytest_cache/
+.mypy_cache/
+.cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+
+# Raw datasets
+module5_email/data/raw/*.csv

@@ -1,7 +1,12 @@
+import os
 import pandas as pd
 import torch
+import matplotlib.pyplot as plt
 from transformers import DistilBertTokenizerFast, DistilBertForSequenceClassification
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
+from sklearn.metrics import (
+    accuracy_score, precision_score, recall_score, f1_score, roc_auc_score,
+    confusion_matrix, ConfusionMatrixDisplay
+)
 
 model_path = "saved_model"
 tokenizer = DistilBertTokenizerFast.from_pretrained(model_path)
@@ -29,3 +34,20 @@ print(f"Recall   : {recall_score(labels, all_preds):.4f}")
 print(f"F1       : {f1_score(labels, all_preds):.4f}")
 print(f"ROC-AUC  : {roc_auc_score(labels, all_probs):.4f}")
 print(f"Test set size: {len(labels)}")
+
+# =====================================================
+# Confusion Matrix (for paper / report)
+# =====================================================
+
+os.makedirs("../results", exist_ok=True)
+
+cm = confusion_matrix(labels, all_preds)
+
+disp = ConfusionMatrixDisplay(confusion_matrix=cm)
+disp.plot()
+
+plt.tight_layout()
+plt.savefig("../results/confusion_matrix.png", dpi=300)
+plt.close()
+
+print("Saved -> ../results/confusion_matrix.png")

@@ -8,7 +8,7 @@ echo Starting Adaptive Risk Fusion API...
 echo.
 
 REM --- EDIT THIS LINE if your venv is somewhere else ---
-call ..\module4_image\venv\Scripts\activate.bat
+call venv\Scripts\activate.bat
 
 python -m uvicorn api:app --reload
 
