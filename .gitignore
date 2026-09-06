@@ -50,3 +50,4 @@ Thumbs.db
 
 # Raw datasets
 module5_email/data/raw/*.csv
+module5_email/data/raw.zip
